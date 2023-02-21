@@ -5,6 +5,8 @@ C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\SolumC.dll
 C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\SolumC.pdb
 C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\Magick.NET-Q16-AnyCPU.dll
 C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\Magick.NET.Core.dll
+C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\Potrace.dll
+C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\SvgLib.dll
 C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\runtimes\linux-arm64\native\Magick.Native-Q16-arm64.dll.so
 C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\runtimes\linux-musl-x64\native\Magick.Native-Q16-x64.dll.so
 C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\runtimes\linux-x64\native\Magick.Native-Q16-x64.dll.so
@@ -14,10 +16,12 @@ C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\runtimes\win
 C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\runtimes\win-x64\native\Magick.Native-Q16-x64.dll
 C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\runtimes\win-x86\native\Magick.Native-Q16-x86.dll
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\SolumC.csproj.AssemblyReference.cache
+C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\Resources\recursos.baml
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\SolumC_MarkupCompile.cache
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\SolumC_MarkupCompile.lref
+C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\App.baml
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\MainWindow.baml
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\SolumC.g.resources
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\SolumC.GeneratedMSBuildEditorConfig.editorconfig
@@ -30,7 +34,3 @@ C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\refint\Solum
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\SolumC.pdb
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\SolumC.genruntimeconfig.cache
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\ref\SolumC.dll
-C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\Potrace.dll
-C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\SvgLib.dll
-C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\Resources\recursos.baml
-C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\App.baml

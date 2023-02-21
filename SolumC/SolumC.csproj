@@ -8,9 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="img\iconSolum.png" />
+    <None Remove="Resources\logoSolum.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="12.3.0" />
     <PackageReference Include="Potrace" Version="1.0.1" />
     <PackageReference Include="SvgLib" Version="1.0.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\iconSolum.png" />
+    <Resource Include="img\logoSolum.png" />
   </ItemGroup>
 
 </Project>

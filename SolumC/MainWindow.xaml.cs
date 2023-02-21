@@ -43,6 +43,7 @@ namespace SolumC
         {
             // Crear y configurar el control OpenFileDialog
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Seleccionar etiqueta";
             openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 
@@ -58,6 +59,7 @@ namespace SolumC
         {
             // Crear y configurar el control OpenFileDialog
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Seleccionar códigos";
             openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
             openFileDialog.Multiselect = true;
@@ -77,22 +79,64 @@ namespace SolumC
 
         private void btnCarpeta_Click(object sender, RoutedEventArgs e)
         {
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Seleccionar carpeta";
+            openFileDialog.Filter = "Carpeta|*.";
+            openFileDialog.CheckFileExists = false;
+            openFileDialog.CheckPathExists = true;
+            openFileDialog.FileName = "Seleccionar carpeta";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                rutaCarpeta = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
+                //MessageBox.Show(rutaCarpeta);
+            }
+            /*
             rutaCarpeta = string.Empty;
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             if (saveFileDialog.ShowDialog() == true)
             {
                 rutaCarpeta = saveFileDialog.FileName;
             }
-            
+            */
+
         }
 
         private void btnGenerar_Click(object sender, RoutedEventArgs e)
         {
-            for(int i = 0;i < bitCodigo.Length;i++) {
-                merge(i);
-                MessageBox.Show(Convert.ToString(bitCodigo.Length));
+           if(bitEtiqueta != null)
+            {
+                if(bitCodigo != null)
+                {
+                    if(rutaCarpeta != null)
+                    {
+                        for (int i = 0; i < bitCodigo.Length; i++)
+                        {
+                            merge(i);
+                        }
+                        MessageBox.Show("Imagenes creadas correctamente en:" + rutaCarpeta);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Seleccione la ruta para guardar");
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione los códigos");
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Selecciona la etiqueta");
             }
             
+           
+            
+            
+          
         }
 
         public void merge(int i)
@@ -151,7 +195,7 @@ namespace SolumC
                 byte[] svgBytes = magickImage.ToByteArray();
 
                 // Guardar objeto Svg como archivo SVG
-                File.WriteAllBytes(rutaCarpeta + j + ".svg", svgBytes);
+                File.WriteAllBytes(rutaCarpeta + "\\" + j + ".svg", svgBytes);
             }
         }
 

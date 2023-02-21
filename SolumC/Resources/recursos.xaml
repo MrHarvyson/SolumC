@@ -8,8 +8,19 @@
     <Brush x:Key="Negro">#333333</Brush>
     <Brush x:Key="Gris">#525252</Brush>
     <Brush x:Key="Azul">#278bef</Brush>
-    <Brush x:Key="AmarilloClaro">#ffe705</Brush>
-    <Brush x:Key="AmarilloOscuro">#ffcb00</Brush>
+    
+
+    <Brush x:Key="grisOscuro">#a1a4a4</Brush>
+    <Brush x:Key="verdeOscuro">#9cbdab</Brush>
+    <Brush x:Key="verdeClaro">#b6dbc4</Brush>
+    <Brush x:Key="azulClaro">#a7e8e5</Brush>
+    <Brush x:Key="azulOscuro">#00cfca</Brush>
+    <Brush x:Key="AmarilloClaro">#ffecb7</Brush>
+    <Brush x:Key="AmarilloOscuro">#ffda6e</Brush>
+    
+    
+    
+    
 
 
 
@@ -17,10 +28,12 @@
 
     <Style x:Key="BotColorVerde"
            TargetType="Button">
-        <Setter Property="Background" Value="#22B573" />
+        <Setter Property="Background" Value="{StaticResource azulOscuro}" />
+        <Setter Property="Foreground" Value="White"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#278bef" />
+                <Setter Property="Background" Value="{StaticResource AmarilloClaro}" />
+                <Setter Property="Foreground" Value="{StaticResource azulOscuro}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
