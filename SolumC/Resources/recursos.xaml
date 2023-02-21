@@ -3,13 +3,8 @@
 
     <!-- COLORES -->
 
-    <Brush x:Key="Verde">#22B573</Brush>
-    <Brush x:Key="VerdeClaro">#28C67F</Brush>
     <Brush x:Key="Negro">#333333</Brush>
     <Brush x:Key="Gris">#525252</Brush>
-    <Brush x:Key="Azul">#278bef</Brush>
-    
-
     <Brush x:Key="grisOscuro">#a1a4a4</Brush>
     <Brush x:Key="verdeOscuro">#9cbdab</Brush>
     <Brush x:Key="verdeClaro">#b6dbc4</Brush>
@@ -26,13 +21,24 @@
            TargetType="Button">
         <Setter Property="Background" Value="{StaticResource azulClaro}" />
         <Setter Property="Foreground" Value="{StaticResource Negro}"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect ShadowDepth="5" Color="#b6dbc4" Opacity="0.3" BlurRadius="20"/>
+            </Setter.Value>
+        </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{StaticResource AmarilloClaro}" />
-                <Setter Property="Foreground" Value="{StaticResource azulOscuro}"/>
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect ShadowDepth="5" Color="#b6dbc4" Opacity="0.4" BlurRadius="40"/>
+                    </Setter.Value>
+                </Setter>
             </Trigger>
         </Style.Triggers>
     </Style>
+    
+    
 
     <!-- FORMA BOTONES REDONDOS -->
     <ControlTemplate x:Key="BotRedondo"
