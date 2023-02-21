@@ -187,7 +187,6 @@ namespace SolumC
             /*
             using (var fileStream = new FileStream(saveFileDialog.FileName, FileMode.Create))
             {
-
                 encoder.Save(fileStream);
             }
             */

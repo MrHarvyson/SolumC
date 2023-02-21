@@ -17,10 +17,6 @@
     <Brush x:Key="azulOscuro">#00cfca</Brush>
     <Brush x:Key="AmarilloClaro">#ffecb7</Brush>
     <Brush x:Key="AmarilloOscuro">#ffda6e</Brush>
-    
-    
-    
-    
 
 
 
@@ -28,8 +24,8 @@
 
     <Style x:Key="BotColorVerde"
            TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource azulOscuro}" />
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="{StaticResource azulClaro}" />
+        <Setter Property="Foreground" Value="{StaticResource Negro}"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{StaticResource AmarilloClaro}" />
@@ -48,6 +44,7 @@
             <ContentPresenter VerticalAlignment="Center"
                               HorizontalAlignment="Center" />
         </Border>
+        
     </ControlTemplate>
 
     <ControlTemplate x:Key="BotSemiRedondo"
@@ -59,6 +56,7 @@
             <ContentPresenter VerticalAlignment="Center"
                               HorizontalAlignment="Center" />
         </Border>
+        
     </ControlTemplate>
 
 </ResourceDictionary>

@@ -33,6 +33,7 @@
         <TextBlock  Grid.Row="2"
                     HorizontalAlignment="Center"
                     FontSize="8"
+                    FontFamily="Gotham"
                     VerticalAlignment="Bottom"
                     Foreground="{StaticResource grisOscuro}"
                     >Version 1.0</TextBlock>
@@ -57,6 +58,7 @@
                 Name="btnEtiqueta" 
                 Click="btnEtiqueta_Click"
                 FontWeight="Bold"
+                    FontFamily="Gotham"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center"
                 Style="{StaticResource BotColorVerde}"
@@ -64,10 +66,11 @@
                 <Button.Effect>
                     <DropShadowEffect   ShadowDepth="0"
                                         Color="#b6dbc4"
-                                        Opacity="0.5"
+                                        Opacity="0.3"
                                         BlurRadius="20"/>
                 </Button.Effect>
             </Button>
+            
             <Button Content="CÓDIGOS" 
                 Grid.Column="1"
                 Grid.Row="1"
@@ -75,13 +78,14 @@
                 Click="btnCodigos_Click"
                 FontWeight="Bold"
                 HorizontalAlignment="Center"  
+                FontFamily="Gotham"
                 VerticalAlignment="Center"
                 Style="{StaticResource BotColorVerde}"
                 Template="{StaticResource BotSemiRedondo}">
                 <Button.Effect>
                     <DropShadowEffect   ShadowDepth="0"
                                         Color="#b6dbc4"
-                                        Opacity="0.5"
+                                        Opacity="0.3"
                                         BlurRadius="20"/>
                 </Button.Effect>
             </Button>
@@ -91,6 +95,7 @@
                 Name="btnCarpeta" 
                 Click="btnCarpeta_Click"
                 FontWeight="Bold"
+                    FontFamily="Gotham"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center"
                 Style="{StaticResource BotColorVerde}"
@@ -98,7 +103,7 @@
                 <Button.Effect>
                     <DropShadowEffect   ShadowDepth="0"
                                         Color="#b6dbc4"
-                                        Opacity="0.5"
+                                        Opacity="0.3"
                                         BlurRadius="20"/>
                 </Button.Effect>
             </Button>
@@ -106,6 +111,7 @@
                 Grid.Column="1"
                 Grid.Row="3"
                 Name="btnGenerar" 
+                    FontFamily="Gotham"
                 Click="btnGenerar_Click"
                 FontWeight="Bold"
                 HorizontalAlignment="Center"  
@@ -115,7 +121,7 @@
                 <Button.Effect>
                     <DropShadowEffect   ShadowDepth="0"
                                         Color="#b6dbc4"
-                                        Opacity="0.5"
+                                        Opacity="0.3"
                                         BlurRadius="20"/>
                 </Button.Effect>
             </Button>
