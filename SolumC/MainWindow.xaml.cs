@@ -21,6 +21,14 @@ using System.Windows.Media.Imaging;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Windows.Interop;
+using IronBarCode;
+using System.Drawing;
+using System.IO;
+using System.Windows.Media.Imaging;
+using System.Windows.Media.Imaging;
+using ZXing;
+using ZXing.Common;
+using ZXing.QrCode;
 
 namespace SolumC
 {
@@ -117,6 +125,7 @@ namespace SolumC
 
         private void btnGenerar_Click(object sender, RoutedEventArgs e)
         {
+            cod();
            if(bitEtiqueta != null)
             {
                 if(bitCodigo != null)
@@ -146,10 +155,6 @@ namespace SolumC
                 MessageBox.Show("Selecciona la etiqueta");
             }
             
-           
-            
-            
-          
         }
 
         public void merge(int i)
@@ -219,5 +224,17 @@ namespace SolumC
                 return memoryStream.ToArray();
             }
         }
+
+        public void cod()
+        {
+            BarcodeLib.Barcode Codigo = new BarcodeLib.Barcode();
+            Codigo.IncludeLabel = true;
+            System.Drawing.Image co = Codigo.Encode(BarcodeLib.TYPE.CODE128, "hola", System.Drawing.Color.Black, System.Drawing.Color.White, 400, 100);
+            // Utilizar el objeto "co" aquí
+            Bitmap bitmapCo = new Bitmap(co);
+            bitmapCo.Save("C:\\Users\\josec\\Desktop\\Nueva carpeta\\hola2.png");
+        }
+
+
     }
 }
