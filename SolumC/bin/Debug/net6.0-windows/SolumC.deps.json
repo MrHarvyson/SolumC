@@ -1,0 +1,169 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "SolumC/1.0.0": {
+        "dependencies": {
+          "Magick.NET-Q16-AnyCPU": "12.3.0",
+          "Potrace": "1.0.1",
+          "SvgLib": "1.0.0.3"
+        },
+        "runtime": {
+          "SolumC.dll": {}
+        }
+      },
+      "Magick.NET-Q16-AnyCPU/12.3.0": {
+        "dependencies": {
+          "Magick.NET.Core": "12.3.0"
+        },
+        "runtime": {
+          "lib/netstandard21/Magick.NET-Q16-AnyCPU.dll": {
+            "assemblyVersion": "12.3.0.0",
+            "fileVersion": "12.3.0.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm64/native/Magick.Native-Q16-arm64.dll.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/Magick.Native-Q16-x64.dll.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/Magick.Native-Q16-x64.dll.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-arm64/native/Magick.Native-Q16-arm64.dll.dylib": {
+            "rid": "osx-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/Magick.Native-Q16-x64.dll.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/Magick.Native-Q16-arm64.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "7.1.0.61"
+          },
+          "runtimes/win-x64/native/Magick.Native-Q16-x64.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "7.1.0.61"
+          },
+          "runtimes/win-x86/native/Magick.Native-Q16-x86.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "7.1.0.61"
+          }
+        }
+      },
+      "Magick.NET.Core/12.3.0": {
+        "runtime": {
+          "lib/netstandard21/Magick.NET.Core.dll": {
+            "assemblyVersion": "12.3.0.0",
+            "fileVersion": "12.3.0.0"
+          }
+        }
+      },
+      "Microsoft.NETCore.Platforms/3.1.0": {},
+      "Microsoft.Win32.SystemEvents/4.7.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0"
+        }
+      },
+      "Potrace/1.0.1": {
+        "dependencies": {
+          "System.Drawing.Common": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Potrace.dll": {
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
+          }
+        }
+      },
+      "SvgLib/1.0.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/SvgLib.dll": {
+            "assemblyVersion": "1.0.0.3",
+            "fileVersion": "1.0.0.3"
+          }
+        }
+      },
+      "System.Drawing.Common/4.7.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0",
+          "Microsoft.Win32.SystemEvents": "4.7.0"
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SolumC/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Magick.NET-Q16-AnyCPU/12.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gJ5CtgW0Hmwg5fgpHBsA5W947ERJpc+CmgnHehbt8vHOyHwEcaZJfBfITgkGtlGwJ2RVEY/8jx98yoyhDb0gAQ==",
+      "path": "magick.net-q16-anycpu/12.3.0",
+      "hashPath": "magick.net-q16-anycpu.12.3.0.nupkg.sha512"
+    },
+    "Magick.NET.Core/12.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bO9v+y3TyVTkeYxPFqqx00pujZo05AdWvTm/wCDk9zKs1krNIUZWF8Jd49tBTIoijaWaTcf4MyiwsQypkHz+Jg==",
+      "path": "magick.net.core/12.3.0",
+      "hashPath": "magick.net.core.12.3.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
+      "path": "microsoft.netcore.platforms/3.1.0",
+      "hashPath": "microsoft.netcore.platforms.3.1.0.nupkg.sha512"
+    },
+    "Microsoft.Win32.SystemEvents/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
+      "path": "microsoft.win32.systemevents/4.7.0",
+      "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
+    },
+    "Potrace/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZWwius4x0945Q3Hn+dQDhwpY3RGR+eE2A7D1J/O84jTdxhczYrwENrVPhgXcKX8gHLx/F8AdCjfQmCCIb6Admw==",
+      "path": "potrace/1.0.1",
+      "hashPath": "potrace.1.0.1.nupkg.sha512"
+    },
+    "SvgLib/1.0.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9iv8uExSYC/AClCaa/e7inlA1ike6tA8Fp/33W3xABqQ1MzfRDEMTTY/LNfQOlN3fAWVkqehvO+eTDXTfUZZnA==",
+      "path": "svglib/1.0.0.3",
+      "hashPath": "svglib.1.0.0.3.nupkg.sha512"
+    },
+    "System.Drawing.Common/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-v+XbyYHaZjDfn0ENmJEV1VYLgGgCTx1gnfOBcppowbpOAriglYgGCvFCPr2EEZyBvXlpxbEsTwkOlInl107ahA==",
+      "path": "system.drawing.common/4.7.0",
+      "hashPath": "system.drawing.common.4.7.0.nupkg.sha512"
+    }
+  }
+}

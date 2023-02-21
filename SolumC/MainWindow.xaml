@@ -1,0 +1,57 @@
+﻿<Window x:Class="SolumC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SolumC"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="600"
+        ResizeMode="NoResize">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Button Content="ETIQUETA"
+                Grid.Column="1"
+                Grid.Row="0"
+                Name="btnEtiqueta" 
+                Click="btnEtiqueta_Click" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center"
+                Style="{StaticResource BotColorVerde}"
+                Template="{StaticResource BotSemiRedondo}"/>
+        <Button Content="CODIGOS" 
+                Grid.Column="1"
+                Grid.Row="1"
+                Name="btnCodigos" 
+                Click="btnCodigos_Click" 
+                HorizontalAlignment="Center"  
+                VerticalAlignment="Center"/>
+        <Button Content="CARPETA" 
+                Grid.Column="1"
+                Grid.Row="2"
+                Name="btnCarpeta" 
+                Click="btnCarpeta_Click" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center"/>
+        <Button Content="GENERAR" 
+                Grid.Column="1"
+                Grid.Row="3"
+                Name="btnGenerar" 
+                Click="btnGenerar_Click" 
+                HorizontalAlignment="Center"  
+                VerticalAlignment="Center"/>
+
+    </Grid>
+</Window>

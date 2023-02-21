@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="12.3.0" />
+    <PackageReference Include="Potrace" Version="1.0.1" />
+    <PackageReference Include="SvgLib" Version="1.0.0.3" />
+  </ItemGroup>
+
+</Project>
