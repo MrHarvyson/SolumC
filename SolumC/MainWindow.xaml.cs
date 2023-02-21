@@ -63,6 +63,8 @@ namespace SolumC
             openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
             openFileDialog.Multiselect = true;
+            int ancho = 714;
+            int largo = 146;
 
             // Mostrar el cuadro de diálogo OpenFileDialog
             if (openFileDialog.ShowDialog() == true)
@@ -72,6 +74,17 @@ namespace SolumC
                 for (int i = 0; i < openFileDialog.FileNames.Length; i++)
                 {
                     bitCodigo[i] = new Bitmap(openFileDialog.FileNames[i]);
+                    
+                    using (Bitmap redimensionadoBitmap = new Bitmap(ancho/2, largo/2))
+                    {
+                        using (Graphics graphics = Graphics.FromImage(redimensionadoBitmap))
+                        {
+                            graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                            graphics.DrawImage(bitCodigo[i], new System.Drawing.Rectangle(0, 0, ancho/2, largo/2));
+                        }
+                        bitCodigo[i] = new Bitmap (redimensionadoBitmap);
+                    }
+                    
                 }
             }
 
@@ -155,7 +168,7 @@ namespace SolumC
             using (var g = Graphics.FromImage(combinedImage))
             {
                 g.DrawImage(bitEtiqueta, 0, 0);
-                g.DrawImage(bitCodigo[i],50, 50);
+                g.DrawImage(bitCodigo[i],50, 380);
             }
 
             // Crea un objeto BitmapSource a partir del objeto Bitmap

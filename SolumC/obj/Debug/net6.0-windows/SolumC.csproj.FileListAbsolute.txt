@@ -19,6 +19,7 @@ C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\SolumC.cspro
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\Resources\recursos.baml
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\SolumC_Content.g.cs
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\SolumC_MarkupCompile.cache
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\SolumC_MarkupCompile.lref
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\App.baml

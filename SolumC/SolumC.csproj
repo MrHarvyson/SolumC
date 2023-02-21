@@ -5,11 +5,16 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>img\iconSolum.ico</ApplicationIcon>
+    <PackageIcon>iconSolum.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="img\iconSolum.png" />
     <None Remove="Resources\logoSolum.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="img\iconSolum.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +26,17 @@
   <ItemGroup>
     <Resource Include="img\iconSolum.png" />
     <Resource Include="img\logoSolum.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="img\iconSolum.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="img\logoSolum.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
