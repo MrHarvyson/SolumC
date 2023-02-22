@@ -21,30 +21,25 @@ using System.Windows.Media.Imaging;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Windows.Interop;
-using IronBarCode;
 using System.Drawing;
 using System.IO;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Imaging;
-using ZXing;
-using ZXing.Common;
-using ZXing.QrCode;
+using BarcodeLib;
 
 namespace SolumC
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         string rutaCarpeta;
-        Bitmap bitEtiqueta;
+        Bitmap bitEtiqueta ;
         Bitmap[] bitCodigo;
+        string[] nombreCodigo;
 
         public MainWindow()
         {
             InitializeComponent();
-            
+            //bitEtiqueta = new Bitmap("../../../img/Matriz_inferior.png");
         }
 
         private void btnEtiqueta_Click(object sender, RoutedEventArgs e)
@@ -71,18 +66,21 @@ namespace SolumC
             openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
             openFileDialog.Multiselect = true;
-            int ancho = 714;
-            int largo = 146;
 
             // Mostrar el cuadro de diálogo OpenFileDialog
             if (openFileDialog.ShowDialog() == true)
             {
                 bitCodigo = new Bitmap[openFileDialog.FileNames.Length];
+                nombreCodigo = new String[openFileDialog.FileNames.Length];
+                
+                
                 // Cargar la imagen en el control Image
                 for (int i = 0; i < openFileDialog.FileNames.Length; i++)
                 {
+                    nombreCodigo[i]= openFileDialog.SafeFileNames[i].Replace(".png","");
                     bitCodigo[i] = new Bitmap(openFileDialog.FileNames[i]);
-                    
+
+                    /*
                     using (Bitmap redimensionadoBitmap = new Bitmap(ancho/2, largo/2))
                     {
                         using (Graphics graphics = Graphics.FromImage(redimensionadoBitmap))
@@ -92,7 +90,9 @@ namespace SolumC
                         }
                         bitCodigo[i] = new Bitmap (redimensionadoBitmap);
                     }
-                    
+                    */
+
+
                 }
             }
 
@@ -121,14 +121,13 @@ namespace SolumC
             }
             */
 
+
         }
 
         private void btnGenerar_Click(object sender, RoutedEventArgs e)
         {
-            cod();
-           if(bitEtiqueta != null)
-            {
-                if(bitCodigo != null)
+            //cod();
+                if (bitCodigo != null)
                 {
                     if(rutaCarpeta != null)
                     {
@@ -148,18 +147,14 @@ namespace SolumC
                 {
                     MessageBox.Show("Seleccione los códigos");
                 }
-                
-            }
-            else
-            {
-                MessageBox.Show("Selecciona la etiqueta");
-            }
+             
             
         }
 
         public void merge(int i)
         {
             // Crea un nuevo objeto Bitmap para almacenar las dos imágenes combinadas
+            //Bitmap combinedImage = new Bitmap(bitEtiqueta.Width , bitEtiqueta.Height);
             Bitmap combinedImage = new Bitmap(bitEtiqueta.Width , bitEtiqueta.Height);
 
             // Crear y configurar el control SaveFileDialog
@@ -172,8 +167,8 @@ namespace SolumC
             // Dibuja las dos imágenes en el objeto Bitmap combinado
             using (var g = Graphics.FromImage(combinedImage))
             {
-                g.DrawImage(bitEtiqueta, 0, 0);
-                g.DrawImage(bitCodigo[i],50, 380);
+                g.DrawImage(bitEtiqueta, 0, 0, 591,886);
+                g.DrawImage(bitCodigo[i],50, 500, 488, 100);
             }
 
             // Crea un objeto BitmapSource a partir del objeto Bitmap
@@ -195,7 +190,6 @@ namespace SolumC
                 encoder.Save(fileStream);
             }
             */
-
             svg(combinedImage,i);
         }
 
@@ -212,7 +206,7 @@ namespace SolumC
                 byte[] svgBytes = magickImage.ToByteArray();
 
                 // Guardar objeto Svg como archivo SVG
-                File.WriteAllBytes(rutaCarpeta + "\\" + j + ".svg", svgBytes);
+                File.WriteAllBytes(rutaCarpeta + "\\" + nombreCodigo[j] + ".svg", svgBytes);
             }
         }
 
@@ -227,12 +221,14 @@ namespace SolumC
 
         public void cod()
         {
-            BarcodeLib.Barcode Codigo = new BarcodeLib.Barcode();
-            Codigo.IncludeLabel = true;
-            System.Drawing.Image co = Codigo.Encode(BarcodeLib.TYPE.CODE128, "hola", System.Drawing.Color.Black, System.Drawing.Color.White, 400, 100);
+            BarcodeLib.Barcode codigo = new BarcodeLib.Barcode();
+            codigo.IncludeLabel = true;
+            codigo.LabelFont = new Font("Gotham",15);
+
+            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-M-V1-2308-00", System.Drawing.Color.Black, System.Drawing.Color.White, 488, 100);
             // Utilizar el objeto "co" aquí
             Bitmap bitmapCo = new Bitmap(co);
-            bitmapCo.Save("C:\\Users\\josec\\Desktop\\Nueva carpeta\\hola2.png");
+            bitmapCo.Save("C:\\Users\\josec\\Desktop\\codigo0.png");
         }
 
 

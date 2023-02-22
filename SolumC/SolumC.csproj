@@ -18,17 +18,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BarCode" Version="2023.2.2" />
     <PackageReference Include="BarcodeLib" Version="2.4.0" />
     <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="12.3.0" />
     <PackageReference Include="Potrace" Version="1.0.1" />
     <PackageReference Include="SvgLib" Version="1.0.0.3" />
-    <PackageReference Include="ZXing.Net" Version="0.16.8" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="img\iconSolum.png" />
     <Resource Include="img\logoSolum.png" />
+    <Resource Include="img\Matriz_inferior.png" />
   </ItemGroup>
 
   <ItemGroup>

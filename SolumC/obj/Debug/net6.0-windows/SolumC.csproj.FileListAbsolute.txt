@@ -35,12 +35,4 @@ C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\refint\Solum
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\SolumC.pdb
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\SolumC.genruntimeconfig.cache
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\ref\SolumC.dll
-C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\IronBarCode.dll
-C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\SixLabors.Fonts.dll
-C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\SixLabors.ImageSharp.Drawing.dll
 C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\BarcodeStandard.dll
-C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\BitMiracle.LibTiff.NET.dll
-C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\IronSoftware.Drawing.Common.dll
-C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\SixLabors.ImageSharp.dll
-C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\zxing.dll
