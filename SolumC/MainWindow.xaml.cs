@@ -26,6 +26,7 @@ using System.IO;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Imaging;
 using BarcodeLib;
+using System.Data.SqlTypes;
 
 namespace SolumC
 {
@@ -77,9 +78,11 @@ namespace SolumC
                 // Cargar la imagen en el control Image
                 for (int i = 0; i < openFileDialog.FileNames.Length; i++)
                 {
-                    nombreCodigo[i]= openFileDialog.SafeFileNames[i].Replace(".png","");
+                    // obtencion del nombre y cmabio de los archivos, en el caso de no tener est dara error
+                    nombreCodigo[i]= openFileDialog.SafeFileNames[i].Replace("1_","");
                     bitCodigo[i] = new Bitmap(openFileDialog.FileNames[i]);
 
+                    //cambiar escala
                     /*
                     using (Bitmap redimensionadoBitmap = new Bitmap(ancho/2, largo/2))
                     {
@@ -91,7 +94,6 @@ namespace SolumC
                         bitCodigo[i] = new Bitmap (redimensionadoBitmap);
                     }
                     */
-
 
                 }
             }
@@ -110,26 +112,19 @@ namespace SolumC
             if (openFileDialog.ShowDialog() == true)
             {
                 rutaCarpeta = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
-                //MessageBox.Show(rutaCarpeta);
             }
-            /*
-            rutaCarpeta = string.Empty;
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            if (saveFileDialog.ShowDialog() == true)
-            {
-                rutaCarpeta = saveFileDialog.FileName;
-            }
-            */
 
 
         }
 
         private void btnGenerar_Click(object sender, RoutedEventArgs e)
         {
-            //cod();
+            //barcode();
+            if(bitEtiqueta !=null)
+            {
                 if (bitCodigo != null)
                 {
-                    if(rutaCarpeta != null)
+                    if (rutaCarpeta != null)
                     {
                         for (int i = 0; i < bitCodigo.Length; i++)
                         {
@@ -141,12 +136,19 @@ namespace SolumC
                     {
                         MessageBox.Show("Seleccione la ruta para guardar");
                     }
-                    
+
                 }
                 else
                 {
                     MessageBox.Show("Seleccione los códigos");
                 }
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccione la etiqueta");
+            }
+                
              
             
         }
@@ -182,6 +184,7 @@ namespace SolumC
             var encoder = new PngBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create(bitmapSource));
 
+            combinedImage.Save(rutaCarpeta + "\\" + nombreCodigo[i] );
 
             // Guarda la imagen en un archivo PNG
             /*
@@ -190,7 +193,7 @@ namespace SolumC
                 encoder.Save(fileStream);
             }
             */
-            svg(combinedImage,i);
+            //svg(combinedImage,i);
         }
 
         public void svg(Bitmap bitmap, int j)
@@ -203,6 +206,8 @@ namespace SolumC
             {
                 // Convertir imagen a SVG
                 magickImage.Format = MagickFormat.Svg;
+                //resolucion svg
+                //magickImage.AdaptiveResize(100, 886);
                 byte[] svgBytes = magickImage.ToByteArray();
 
                 // Guardar objeto Svg como archivo SVG
@@ -219,18 +224,20 @@ namespace SolumC
             }
         }
 
-        public void cod()
+        public void barcode()
         {
             BarcodeLib.Barcode codigo = new BarcodeLib.Barcode();
             codigo.IncludeLabel = true;
             codigo.LabelFont = new Font("Gotham",15);
 
+
+            // poner el largo del archivo y las coordenadas en x a 0
             System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-M-V1-2308-00", System.Drawing.Color.Black, System.Drawing.Color.White, 488, 100);
-            // Utilizar el objeto "co" aquí
+            
+
             Bitmap bitmapCo = new Bitmap(co);
             bitmapCo.Save("C:\\Users\\josec\\Desktop\\codigo0.png");
         }
-
 
     }
 }
