@@ -18,14 +18,9 @@ using System.Windows.Documents;
 
 namespace SolumC
 {
-    internal class Matriz
+    class Matriz
     {
-        public static string rutaCarpeta;
         public static Bitmap bitEtiqueta =  new Bitmap("../../../img/Matriz_inferior.png");
-        //public static Bitmap bitEtiqueta;
-        public static Bitmap[] bitCodigo;
-        public static string[] nombreCodigo;
-
 
         public static void btnEtiqueta()
         {
@@ -43,102 +38,17 @@ namespace SolumC
             }
         }
 
-        public static void btnCodigos()
+        public static void btnGenerar(String cantidad, String version, String ano, String semana, String rutaCarpeta)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Seleccionar códigos";
-            openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-            openFileDialog.Multiselect = true;
-
-            if (openFileDialog.ShowDialog() == true)
-            {
-                bitCodigo = new Bitmap[openFileDialog.FileNames.Length];
-                nombreCodigo = new String[openFileDialog.FileNames.Length];
-
-                for (int i = 0; i < openFileDialog.FileNames.Length; i++)
-                {
-                    // obtencion del nombre y cmabio de los archivos, en el caso de no tener est dara error
-                    nombreCodigo[i] = openFileDialog.SafeFileNames[i];
-                    bitCodigo[i] = new Bitmap(openFileDialog.FileNames[i]);
-
-                    //cambiar escala del los codigos
-                    /*
-                    using (Bitmap redimensionadoBitmap = new Bitmap(ancho/2, largo/2))
-                    {
-                        using (Graphics graphics = Graphics.FromImage(redimensionadoBitmap))
-                        {
-                            graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                            graphics.DrawImage(bitCodigo[i], new System.Drawing.Rectangle(0, 0, ancho/2, largo/2));
-                        }
-                        bitCodigo[i] = new Bitmap (redimensionadoBitmap);
-                    }
-                    */
-
-                }
-            }
-
-        }
-
-
-        public static void btnCarpeta()
-        {
-
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Seleccionar carpeta";
-            openFileDialog.Filter = "Carpeta|*.";
-            openFileDialog.CheckFileExists = false;
-            openFileDialog.CheckPathExists = true;
-            openFileDialog.FileName = "Seleccionar carpeta";
-            if (openFileDialog.ShowDialog() == true)
-            {
-                rutaCarpeta = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
-            }
-
-        }
-
-        public static void btnGenerar(String cantidad, String version, String ano, String semana)
-        {
-            //barcode();
-            /*
-            if(bitEtiqueta !=null)
-                {
-                if (bitCodigo != null)
-                {
-                    if (rutaCarpeta != null)
-                    {
-                        for (int i = 0; i < cantidad; i++)
-                        {
-                            merge(i);
-                        }
-                        MessageBox.Show("Imagenes creadas correctamente en:" + rutaCarpeta);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Seleccione la ruta para guardar");
-                    }
-
-                }
-                else
-                {
-                    MessageBox.Show("Seleccione los códigos");
-                }
-            
-            }
-            else
-            {
-                MessageBox.Show("Seleccione la etiqueta");
-            }
-            */
 
             for (int i = 0; i < Convert.ToInt64(cantidad); i++)
             {
-                merge(i,version,ano, semana);
+                merge(i,version,ano, semana, rutaCarpeta);
             }
         }
 
 
-        public static void merge(int i, String version, String ano, String semana)
+        public static void merge(int i, String version, String ano, String semana, String rutaCarpeta)
         {
             // Crea un nuevo objeto Bitmap para almacenar las dos imágenes combinadas
             Bitmap combinedImage = new Bitmap(bitEtiqueta.Width, bitEtiqueta.Height);
@@ -148,7 +58,7 @@ namespace SolumC
             using (var g = Graphics.FromImage(combinedImage))
             {
                 g.DrawImage(bitEtiqueta, 0, 0, 591, 886);
-                g.DrawImage(barcode(version, ano, semana, i), 0, 500, 591, 100);
+                g.DrawImage(barcode(version, ano, semana, i), -5, 490, 600, 100);
             }
 
             // Crea un objeto BitmapSource a partir del objeto Bitmap
@@ -173,7 +83,7 @@ namespace SolumC
 
 
             // poner el largo del archivo y las coordenadas en x a 0
-            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-M-" + version + "-" + ano + semana + "-" + indice, System.Drawing.Color.Black, System.Drawing.Color.White, 591, 100);
+            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-M-" + version + "-" + ano + semana + "-" + indice, System.Drawing.Color.Black, System.Drawing.Color.Transparent, 600, 100);
 
             Bitmap bitmapCo = new Bitmap(co);
 

@@ -28,6 +28,7 @@ namespace SolumC
     public partial class MainWindow : Window
     {
         Bitmap bitEtiqueta ;
+        public static string rutaCarpeta;
 
         public MainWindow()
         {
@@ -39,51 +40,40 @@ namespace SolumC
             Matriz.btnEtiqueta();
         }
 
-        private void btnCodigos_Click(object sender, RoutedEventArgs e)
-        {
-            Matriz.btnCodigos();
-        }
-
         private void btnCarpeta_Click(object sender, RoutedEventArgs e)
         {
-
-            Matriz.btnCarpeta();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Seleccionar carpeta";
+            openFileDialog.Filter = "Carpeta|*.";
+            openFileDialog.CheckFileExists = false;
+            openFileDialog.CheckPathExists = true;
+            openFileDialog.FileName = "Seleccionar carpeta";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                rutaCarpeta = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
+            }
         }
 
         private void btnGenerar_Click(object sender, RoutedEventArgs e)
         {
             if (RbtMatriz.IsChecked == true)
             {
-                Matriz.btnGenerar(txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text);
+                Matriz.btnGenerar(txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaCarpeta);
             }
             if(RbtBicicleta.IsChecked== true)
             {
-                Bicicleta.btnGenerar();
+                Bicicleta.btnGenerar(txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaCarpeta);
+            }
+            if (RbtBaldosa.IsChecked == true) {
+            
+            }
+            if (RbtPatinete.IsChecked == true) {
+                Patinete.btnGenerar(txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaCarpeta);
             }
             
             
         }
 
-
-
-        private void RbtMatriz_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void RbtBaldosa_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void RbtBicicleta_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void RbtPatinete_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }

@@ -13,8 +13,8 @@
     <None Remove="img\bateria.png" />
     <None Remove="img\Bicicleta.png" />
     <None Remove="img\iconBicicleta.png" />
+    <None Remove="img\iconPatinete.png" />
     <None Remove="img\panelSolar.png" />
-    <None Remove="img\patinete.png" />
     <None Remove="Resources\logoSolum.png" />
   </ItemGroup>
 
@@ -38,7 +38,7 @@
     <Resource Include="img\logoSolum.png" />
     <Resource Include="img\Matriz_inferior.png" />
     <Resource Include="img\panelSolar.png" />
-    <Resource Include="img\patinete.png" />
+    <Resource Include="img\iconPatinete.png" />
   </ItemGroup>
 
   <ItemGroup>

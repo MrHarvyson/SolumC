@@ -48,8 +48,7 @@
                 <RadioButton x:Name="RbtMatriz" 
                                          Style="{StaticResource BotMenu}"
                                          Tag="{StaticResource verdeClaro}"
-                                         IsChecked="True"
-                                         Click="RbtMatriz_Click">
+                                         IsChecked="True">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="img/bateria.png" Width="30" Margin="10 0"></Image>
                         <TextBlock Text="MATRIZ"  Style="{StaticResource MenuBotonText}"></TextBlock>
@@ -59,8 +58,7 @@
 
                 <RadioButton x:Name="RbtBaldosa" 
                                          Style="{StaticResource BotMenu}"
-                                         Tag="{StaticResource verdeClaro}"
-                                         Click="RbtBaldosa_Click">
+                                         Tag="{StaticResource verdeClaro}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="img/panelSolar.png" Width="30" Margin="10 0"></Image>
                         <TextBlock Text="BALDOSA"  Style="{StaticResource MenuBotonText}"></TextBlock>
@@ -70,8 +68,7 @@
 
                 <RadioButton x:Name="RbtBicicleta" 
                                          Style="{StaticResource BotMenu}"
-                                         Tag="{StaticResource verdeClaro}"
-                                         Click="RbtBicicleta_Click">
+                                         Tag="{StaticResource verdeClaro}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="img/iconBicicleta.png" Width="30" Margin="10 0"></Image>
                         <TextBlock Text="BICICLETA" Style="{StaticResource MenuBotonText}"></TextBlock>
@@ -81,10 +78,9 @@
 
                 <RadioButton x:Name="RbtPatinete" 
                                          Style="{StaticResource BotMenu}"
-                                         Tag="{StaticResource verdeClaro}"
-                                         Click="RbtPatinete_Click">
+                                         Tag="{StaticResource verdeClaro}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="img/patinete.png" Width="30" Margin="10 0"></Image>
+                        <Image Source="img/iconPatinete.png" Width="30" Margin="10 0"></Image>
                         <TextBlock Text="PATINETE" Style="{StaticResource MenuBotonText}"></TextBlock>
                     </StackPanel>
 
