@@ -15,6 +15,18 @@
           "lib/netstandard2.0/BarcodeStandard.dll": {}
         }
       },
+      "FontAwesome.Sharp/6.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows7.0/FontAwesome.Sharp.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/FontAwesome.Sharp.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ]
+      },
       "Magick.NET-Q16-AnyCPU/12.3.0": {
         "type": "package",
         "dependencies": {
@@ -187,6 +199,21 @@
         "barcodelib.nuspec",
         "lib/netstandard2.0/BarcodeStandard.dll",
         "upca.jpg"
+      ]
+    },
+    "FontAwesome.Sharp/6.2.1": {
+      "sha512": "eYpj85+70pOjV4cOfB/Et/Rj6m56WRlCKU2G4ivWCohb7sF7DwHz/3jy8XIWp9utgb/R2Pqm+HsaBwV33FBNbg==",
+      "type": "package",
+      "path": "fontawesome.sharp/6.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fontawesome.sharp.6.2.1.nupkg.sha512",
+        "fontawesome.sharp.nuspec",
+        "lib/net472/FontAwesome.Sharp.dll",
+        "lib/net48/FontAwesome.Sharp.dll",
+        "lib/net6.0-windows7.0/FontAwesome.Sharp.dll",
+        "lib/netcoreapp3.1/FontAwesome.Sharp.dll"
       ]
     },
     "Magick.NET-Q16-AnyCPU/12.3.0": {
@@ -377,6 +404,7 @@
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "BarcodeLib >= 2.4.0",
+      "FontAwesome.Sharp >= 6.2.1",
       "Magick.NET-Q16-AnyCPU >= 12.3.0",
       "Potrace >= 1.0.1",
       "SvgLib >= 1.0.0.3"
@@ -425,6 +453,10 @@
             "target": "Package",
             "version": "[2.4.0, )"
           },
+          "FontAwesome.Sharp": {
+            "target": "Package",
+            "version": "[6.2.1, )"
+          },
           "Magick.NET-Q16-AnyCPU": {
             "target": "Package",
             "version": "[12.3.0, )"
@@ -457,7 +489,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

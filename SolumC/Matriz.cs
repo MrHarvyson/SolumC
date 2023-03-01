@@ -12,14 +12,17 @@ using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 using System.Windows;
 using System.Text.RegularExpressions;
+using System.Windows.Controls;
+using BarcodeLib;
+using System.Windows.Documents;
 
 namespace SolumC
 {
     internal class Matriz
     {
         public static string rutaCarpeta;
-        //public static Bitmap bitEtiqueta =  new Bitmap("../../../img/Matriz_inferior.png");
-        public static Bitmap bitEtiqueta;
+        public static Bitmap bitEtiqueta =  new Bitmap("../../../img/Matriz_inferior.png");
+        //public static Bitmap bitEtiqueta;
         public static Bitmap[] bitCodigo;
         public static string[] nombreCodigo;
 
@@ -94,18 +97,19 @@ namespace SolumC
 
         }
 
-        public static void btnGenerar()
+        public static void btnGenerar(String cantidad, String version, String ano, String semana)
         {
             //barcode();
+            /*
             if(bitEtiqueta !=null)
                 {
                 if (bitCodigo != null)
                 {
                     if (rutaCarpeta != null)
                     {
-                        for (int i = 0; i < bitCodigo.Length; i++)
+                        for (int i = 0; i < cantidad; i++)
                         {
-                            Matriz.merge(i);
+                            merge(i);
                         }
                         MessageBox.Show("Imagenes creadas correctamente en:" + rutaCarpeta);
                     }
@@ -125,27 +129,26 @@ namespace SolumC
             {
                 MessageBox.Show("Seleccione la etiqueta");
             }
+            */
 
+            for (int i = 0; i < Convert.ToInt64(cantidad); i++)
+            {
+                merge(i,version,ano, semana);
+            }
         }
 
 
-        public static void merge(int i)
+        public static void merge(int i, String version, String ano, String semana)
         {
             // Crea un nuevo objeto Bitmap para almacenar las dos imágenes combinadas
             Bitmap combinedImage = new Bitmap(bitEtiqueta.Width, bitEtiqueta.Height);
-
-            // Crear y configurar el control SaveFileDialog
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Archivos de imagen PNG (*.png)|*.png";
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-            saveFileDialog.FileName = rutaCarpeta + i + ".png";
 
 
             // Dibuja las dos imágenes en el objeto Bitmap combinado
             using (var g = Graphics.FromImage(combinedImage))
             {
                 g.DrawImage(bitEtiqueta, 0, 0, 591, 886);
-                g.DrawImage(bitCodigo[i], 50, 500, 488, 100);
+                g.DrawImage(barcode(version, ano, semana, i), 0, 500, 591, 100);
             }
 
             // Crea un objeto BitmapSource a partir del objeto Bitmap
@@ -155,55 +158,14 @@ namespace SolumC
                 System.Windows.Int32Rect.Empty,
                 BitmapSizeOptions.FromEmptyOptions());
 
-            // Crea un objeto PngBitmapEncoder y añade un frame con el BitmapSource
-            var encoder = new PngBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(bitmapSource));
 
-            // cambia el nombre del codigo
-            string[] nuevoCodigo = new string[nombreCodigo.Length];
-           
-            nuevoCodigo[i] = Regex.Replace(nombreCodigo[i], @"^\d+_", "");
-            
             // guarda nueva pegatina 
-            combinedImage.Save(rutaCarpeta + "\\" + nuevoCodigo[i]);
+            combinedImage.Save(rutaCarpeta + "\\" + "SOL-AR-M-" + version + "-" + ano + semana + "-" + i + ".png");
 
-            // en caso de convertir a otro formato como svg
-            //svg(combinedImage,i);
         }
-
-
-        // png to svg
-        public void svg(Bitmap bitmap, int j)
-        {
-            // Cargar imagen PNG como arreglo de bytes
-            // byte[] imageBytes = File.ReadAllBytes(saveFileDialog.FileName);
-            byte[] imageBytes = BitmapToByteArray(bitmap);
-            // Crear objeto MagickImage a partir de la imagen PNG
-            using (var magickImage = new MagickImage(imageBytes))
-            {
-                // Convertir imagen a SVG
-                magickImage.Format = MagickFormat.Svg;
-                //resolucion svg
-                //magickImage.AdaptiveResize(100, 886);
-                byte[] svgBytes = magickImage.ToByteArray();
-
-                // Guardar objeto Svg como archivo SVG
-                File.WriteAllBytes(rutaCarpeta + "\\" + nombreCodigo[j] + ".svg", svgBytes);
-            }
-        }
-
-        public byte[] BitmapToByteArray(Bitmap bitmap)
-        {
-            using (var memoryStream = new MemoryStream())
-            {
-                bitmap.Save(memoryStream, ImageFormat.Png);
-                return memoryStream.ToArray();
-            }
-        }
-
 
         // crea codigos de barra
-        public void barcode()
+        public static Bitmap barcode(String version, String ano, String semana, int indice)
         {
             BarcodeLib.Barcode codigo = new BarcodeLib.Barcode();
             codigo.IncludeLabel = true;
@@ -211,11 +173,12 @@ namespace SolumC
 
 
             // poner el largo del archivo y las coordenadas en x a 0
-            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-M-V1-2308-00", System.Drawing.Color.Black, System.Drawing.Color.White, 488, 100);
-
+            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-M-" + version + "-" + ano + semana + "-" + indice, System.Drawing.Color.Black, System.Drawing.Color.White, 591, 100);
 
             Bitmap bitmapCo = new Bitmap(co);
-            bitmapCo.Save("C:\\Users\\josec\\Desktop\\SOL-AR-M-V1-2308-00.png");
+
+            return bitmapCo;
         }
+
     }
 }

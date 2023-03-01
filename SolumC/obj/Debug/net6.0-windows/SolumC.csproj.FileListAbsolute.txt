@@ -36,3 +36,4 @@ C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\SolumC.pdb
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\SolumC.genruntimeconfig.cache
 C:\Users\josec\Documents\Git\SolumC\SolumC\obj\Debug\net6.0-windows\ref\SolumC.dll
 C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\BarcodeStandard.dll
+C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\FontAwesome.Sharp.dll

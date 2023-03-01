@@ -1,0 +1,5 @@
+﻿- hacer botones etiquetas diferentes
+- crear subventanas con relleno de etiqueta
+- crear sistema de guardado
+- crear archivo con registros
+- SOL-AR-M- version - año y semana del año - numero

@@ -17,14 +17,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
 using System.IO;
-using System.Windows.Media.Imaging;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Windows.Interop;
-using System.Drawing;
-using System.IO;
-using System.Windows.Media.Imaging;
-using System.Windows.Media.Imaging;
 using BarcodeLib;
 using System.Data.SqlTypes;
 
@@ -57,27 +52,38 @@ namespace SolumC
 
         private void btnGenerar_Click(object sender, RoutedEventArgs e)
         {
-            Matriz.btnGenerar();
+            if (RbtMatriz.IsChecked == true)
+            {
+                Matriz.btnGenerar(txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text);
+            }
+            if(RbtBicicleta.IsChecked== true)
+            {
+                Bicicleta.btnGenerar();
+            }
+            
             
         }
 
 
-       
 
-        public void barcode()
+        private void RbtMatriz_Click(object sender, RoutedEventArgs e)
         {
-            BarcodeLib.Barcode codigo = new BarcodeLib.Barcode();
-            codigo.IncludeLabel = true;
-            codigo.LabelFont = new Font("Gotham",15);
 
-
-            // poner el largo del archivo y las coordenadas en x a 0
-            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-M-V1-2308-00", System.Drawing.Color.Black, System.Drawing.Color.White, 488, 100);
-            
-
-            Bitmap bitmapCo = new Bitmap(co);
-            bitmapCo.Save("C:\\Users\\josec\\Desktop\\SOL-AR-M-V1-2308-00.png");
         }
 
+        private void RbtBaldosa_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RbtBicicleta_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RbtPatinete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
