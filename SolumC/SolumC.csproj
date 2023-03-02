@@ -12,6 +12,7 @@
   <ItemGroup>
     <None Remove="img\bateria.png" />
     <None Remove="img\Bicicleta.png" />
+    <None Remove="img\carpeta.png" />
     <None Remove="img\iconBicicleta.png" />
     <None Remove="img\iconPatinete.png" />
     <None Remove="img\panelSolar.png" />
@@ -33,12 +34,21 @@
   <ItemGroup>
     <Resource Include="img\bateria.png" />
     <Resource Include="img\Bicicleta.png" />
+    <Resource Include="img\carpeta.png" />
     <Resource Include="img\iconBicicleta.png" />
     <Resource Include="img\iconSolum.png" />
     <Resource Include="img\logoSolum.png" />
     <Resource Include="img\Matriz_inferior.png" />
     <Resource Include="img\panelSolar.png" />
     <Resource Include="img\iconPatinete.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +59,10 @@
     <None Update="img\logoSolum.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
