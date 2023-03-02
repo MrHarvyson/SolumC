@@ -81,11 +81,11 @@ namespace SolumC
                 imgMatriz.Visibility = Visibility.Collapsed;
             }
             if (RbtBaldosa.IsChecked == true) {
+                Baldosa.btnGenerar(txtCarpetaBaldosa.Text, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
                 imgBaldosa.Visibility = Visibility.Visible;
                 imgBicicleta.Visibility = Visibility.Collapsed;
                 imgPatinete.Visibility = Visibility.Collapsed;
                 imgMatriz.Visibility = Visibility.Collapsed;
-
             }
             if (RbtPatinete.IsChecked == true) {
                 Patinete.btnGenerar(txtCarpetaPatinete.Text,txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
@@ -99,7 +99,6 @@ namespace SolumC
             txtVersion.Text = "";
             txtAno.Text = "";
             txtSemana.Text = "";
-            //txtCarpeta.Text = "";
 
         }
 
@@ -145,7 +144,22 @@ namespace SolumC
 
         private void Baldosa_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Seleccionar etiqueta";
+            openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+            // Mostrar el cuadro de diálogo OpenFileDialog
+            if (openFileDialog.ShowDialog() == true)
+            {
+                rutaBaldosa = openFileDialog.FileName;
+                Properties.Settings.Default.direccionBaldosa = rutaBaldosa;
+                Properties.Settings.Default.Save();
+                // Cargar la imagen en el control Image
+                bitEtiqueta = new Bitmap(openFileDialog.FileName);
+                Baldosa.btnEtiqueta(bitEtiqueta);
+                txtCarpetaBaldosa.Text = rutaBaldosa;
+            }
         }
 
         private void Bicicleta_MouseDown(object sender, MouseButtonEventArgs e)
@@ -169,6 +183,8 @@ namespace SolumC
             }
             
         }
+
+        
 
         private void Patinete_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -232,6 +248,20 @@ namespace SolumC
             txtCarpetaPatinete.Visibility = Visibility.Visible;
             txtCarpetaMatriz.Visibility = Visibility.Collapsed;
 
+        }
+
+        private void RbtBaldosa_Click(object sender, RoutedEventArgs e)
+        {
+            imgBaldosa.Visibility = Visibility.Visible;
+            imgBicicleta.Visibility = Visibility.Collapsed;
+            imgPatinete.Visibility = Visibility.Collapsed;
+            imgMatriz.Visibility = Visibility.Collapsed;
+
+
+            txtCarpetaBaldosa.Visibility = Visibility.Visible;
+            txtCarpetaBicicleta.Visibility = Visibility.Collapsed;
+            txtCarpetaPatinete.Visibility = Visibility.Collapsed;
+            txtCarpetaMatriz.Visibility = Visibility.Collapsed;
         }
     }
 }

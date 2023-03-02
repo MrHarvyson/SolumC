@@ -11,30 +11,31 @@
         WindowStartupLocation="CenterScreen"
         Icon="img/iconSolum.png"
         Background="{StaticResource Negro}">
-    <Grid Margin="20 20 20 10">
+    <Grid >
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition/>
-            <RowDefinition Height="10"/>
-        </Grid.RowDefinitions>
-
-        <Image Source="img/logoSolum.png"
-               Grid.ColumnSpan="2">
-            <Image.Effect>
-                <DropShadowEffect   ShadowDepth="0"
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            
+            <Image Source="img/logoSolum.png"
+               Margin="10 0">
+                <Image.Effect>
+                    <DropShadowEffect   ShadowDepth="0"
                                         Color="#ffecb7"
                                         Opacity="0.5"
                                         BlurRadius="20"/>
-            </Image.Effect>
-        </Image>
+                </Image.Effect>
+            </Image>
 
-        <TextBlock  Grid.Row="2"
+            <TextBlock  Grid.Row="2"
                     HorizontalAlignment="Center"
                     FontSize="8"
                     FontFamily="Gotham"
@@ -42,9 +43,8 @@
                     Foreground="{StaticResource grisOscuro}"
                     >Version 2.01</TextBlock>
 
-        <Grid Grid.Row="1">
-
-            <StackPanel VerticalAlignment="Center">
+            <StackPanel VerticalAlignment="Center"
+                        Grid.Row="1">
                 <RadioButton x:Name="RbtMatriz" 
                                          Style="{StaticResource BotMenu}"
                                          Tag="{StaticResource verdeClaro}"
@@ -59,7 +59,8 @@
 
                 <RadioButton x:Name="RbtBaldosa" 
                                          Style="{StaticResource BotMenu}"
-                                         Tag="{StaticResource verdeClaro}">
+                                         Tag="{StaticResource verdeClaro}"
+                             Click="RbtBaldosa_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="img/panelSolar.png" Width="30" Margin="10 0"></Image>
                         <TextBlock Text="BALDOSA"  Style="{StaticResource MenuBotonText}"></TextBlock>
@@ -91,23 +92,18 @@
 
             </StackPanel>
 
-
         </Grid>
-        
-        <Grid Grid.Row="1"
-              Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            
+
+        <Grid Grid.Column="1"
+              Background="{StaticResource verdeClaro}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition/>
+                <RowDefinition />
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0"
-                  Margin="0 30 0 0">
+                  Margin="20 20 0 0">
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -120,28 +116,28 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                
-                    <TextBlock Grid.Column="0"
+
+                <TextBlock Grid.Column="0"
                            Grid.Row="0" 
                                Margin="0 0 0 10"
-                           Foreground="{StaticResource verdeClaro}"
+                           Foreground="{StaticResource Negro}"
                            VerticalAlignment="Bottom">Versión:</TextBlock>
-                    <TextBox Grid.Column="1"
+                <TextBox Grid.Column="1"
                              Grid.Row="0"  Name="txtVersion" 
                              Background="Transparent"
                              BorderThickness="0 0 0 1"
                              Width="50"
                              Margin="0 0 0 10"
                              VerticalAlignment="Bottom"
-                             Foreground="{StaticResource verdeClaro}"
-                             BorderBrush="{StaticResource verdeClaro}"
+                             Foreground="{StaticResource Negro}"
+                             BorderBrush="{StaticResource Negro}"
                              HorizontalAlignment="Left"></TextBox>
-                    <TextBlock Grid.Column="0"
+                <TextBlock Grid.Column="0"
                            Grid.Row="1"
                                Margin="0 0 0 10"
-                           Foreground="{StaticResource verdeClaro}"
+                           Foreground="{StaticResource Negro}"
                            VerticalAlignment="Bottom">Año:</TextBlock>
-                    <TextBox Grid.Column="1"
+                <TextBox Grid.Column="1"
                              Grid.Row="1" 
                              Name="txtAno" 
                              Background="Transparent"
@@ -149,15 +145,15 @@
                              Width="50"
                              Margin="0 0 0 10"
                              VerticalAlignment="Bottom"
-                             Foreground="{StaticResource verdeClaro}"
-                             BorderBrush="{StaticResource verdeClaro}"
+                             Foreground="{StaticResource Negro}"
+                             BorderBrush="{StaticResource Negro}"
                              HorizontalAlignment="Left"></TextBox>
-                    <TextBlock Grid.Column="0"
+                <TextBlock Grid.Column="0"
                            Grid.Row="2"
                                Margin="0 0 0 10"
-                           Foreground="{StaticResource verdeClaro}"
+                           Foreground="{StaticResource Negro}"
                            VerticalAlignment="Bottom">Semana del año:</TextBlock>
-                    <TextBox Grid.Column="1"
+                <TextBox Grid.Column="1"
                              Grid.Row="2" 
                              Name="txtSemana" 
                              Background="Transparent"
@@ -165,28 +161,29 @@
                              Width="50"
                              Margin="0 0 0 10"
                              VerticalAlignment="Bottom"
-                             Foreground="{StaticResource verdeClaro}"
-                             BorderBrush="{StaticResource verdeClaro}"
+                             Foreground="{StaticResource Negro}"
+                             BorderBrush="{StaticResource Negro}"
                              HorizontalAlignment="Left"></TextBox>
-                    <TextBlock Grid.Column="0"
+                <TextBlock Grid.Column="0"
                            Grid.Row="3"
-                           Foreground="{StaticResource verdeClaro}"
+                           Foreground="{StaticResource Negro}"
                            VerticalAlignment="Bottom">Cantidad:</TextBlock>
-                    <TextBox Grid.Column="1"
+                <TextBox Grid.Column="1"
                              Grid.Row="3" 
                              x:Name="txtCantidad" 
                              Background="Transparent"
                              BorderThickness="0 0 0 1"
                              Width="50"
                              VerticalAlignment="Bottom"
-                             Foreground="{StaticResource verdeClaro}"
-                             BorderBrush="{StaticResource verdeClaro}"
+                             Foreground="{StaticResource Negro}"
+                             BorderBrush="{StaticResource Negro}"
                              HorizontalAlignment="Left"></TextBox>
-                
+
             </Grid>
 
             <Grid Grid.Row="1"
-                  VerticalAlignment="Center">
+                  VerticalAlignment="Center"
+                  Margin="20 0">
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
@@ -203,22 +200,22 @@
                         Grid.Column="0"
                         Grid.Row="0"
                         Name="btnCarpetaMatriz" 
-                        Foreground="{StaticResource verdeClaro}"
+                        Foreground="{StaticResource Negro}"
                         FontWeight="Bold"
                         FontFamily="Gotham"
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Bottom">ETIQUETA</TextBlock>
 
                 <!-- matriz-->
-                
+
                 <TextBox x:Name="txtCarpetaMatriz" 
                          Grid.Column="1"
                          Grid.Row="0"
                          Background="Transparent"
                          BorderThickness="0 0 0 1" 
                          VerticalAlignment="Bottom"
-                         Margin="20 0"
-                         Foreground="{StaticResource verdeClaro}"
+                         Margin="10 0"
+                         Foreground="{StaticResource Negro}"
                          IsEnabled="False"></TextBox>
 
                 <Image x:Name="imgMatriz" 
@@ -230,15 +227,15 @@
                        Source="img/carpeta.png"></Image>
 
                 <!-- baldosa-->
-                
+
                 <TextBox x:Name="txtCarpetaBaldosa" 
                          Grid.Column="1"
                          Grid.Row="0"
                          Background="Transparent"
                          BorderThickness="0 0 0 1" 
                          VerticalAlignment="Bottom"
-                         Margin="20 0"
-                         Foreground="{StaticResource verdeClaro}"
+                         Margin="10 0"
+                         Foreground="{StaticResource Negro}"
                          IsEnabled="False"></TextBox>
 
                 <Image x:Name="imgBaldosa" 
@@ -257,8 +254,8 @@
                          Background="Transparent"
                          BorderThickness="0 0 0 1" 
                          VerticalAlignment="Bottom"
-                         Margin="20 0"
-                         Foreground="{StaticResource verdeClaro}"
+                         Margin="10 0"
+                         Foreground="{StaticResource Negro}"
                          IsEnabled="False"></TextBox>
 
                 <Image x:Name="imgBicicleta" 
@@ -268,7 +265,7 @@
                        MouseDown="Bicicleta_MouseDown"
                        VerticalAlignment="Bottom"
                        Source="img/carpeta.png"></Image>
-                
+
                 <!-- patinete-->
 
                 <TextBox x:Name="txtCarpetaPatinete" 
@@ -277,8 +274,8 @@
                          Background="Transparent"
                          BorderThickness="0 0 0 1" 
                          VerticalAlignment="Bottom"
-                         Margin="20 0"
-                         Foreground="{StaticResource verdeClaro}" IsEnabled="False"/>
+                         Margin="10 0"
+                         Foreground="{StaticResource Negro}" IsEnabled="False"/>
 
                 <Image x:Name="imgPatinete" 
                        Grid.Column="2" 
@@ -287,14 +284,14 @@
                        MouseDown="Patinete_MouseDown"
                        VerticalAlignment="Bottom"
                        Source="img/carpeta.png"></Image>
-                
+
                 <!-- -->
 
                 <TextBlock 
                         Grid.Column="0"
                         Grid.Row="1"
                         Name="btnCarpeta" 
-                        Foreground="{StaticResource verdeClaro}"
+                        Foreground="{StaticResource Negro}"
                         FontWeight="Bold"
                         FontFamily="Gotham"
                         HorizontalAlignment="Left" 
@@ -306,8 +303,8 @@
                          Background="Transparent"
                          BorderThickness="0 0 0 1" 
                          VerticalAlignment="Bottom"
-                         Margin="20 0"
-                         Foreground="{StaticResource verdeClaro}"
+                         Margin="10 0"
+                         Foreground="{StaticResource Negro}"
                          IsEnabled="False"></TextBox>
 
                 <Image Grid.Column="2" 
@@ -322,8 +319,7 @@
 
             </Grid>
 
-            <Button Content="GENERAR" 
-                        Grid.Column="0"
+            <Button Content="GENERAR"
                         Grid.Row="2"
                         Name="btnGenerar" 
                         FontFamily="Gotham"
@@ -331,14 +327,12 @@
                         FontWeight="Bold"
                         HorizontalAlignment="Center"  
                         VerticalAlignment="Center"
+                    Margin="0 10"
                         Style="{StaticResource BotColorVerde}"
                         Template="{StaticResource BotSemiRedondo}">
             </Button>
 
-
         </Grid>
-        
-        
 
     </Grid>
 </Window>

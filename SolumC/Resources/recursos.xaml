@@ -20,8 +20,8 @@
 
     <Style x:Key="BotColorVerde"
            TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource verdeClaro}" />
-        <Setter Property="Foreground" Value="{StaticResource Negro}"/>
+        <Setter Property="Background" Value="{StaticResource Negro}" />
+        <Setter Property="Foreground" Value="{StaticResource verdeClaro}"/>
         <Setter Property="Effect">
             <Setter.Value>
                 <DropShadowEffect ShadowDepth="5" Color="#b6dbc4" Opacity="0.3" BlurRadius="20"/>
