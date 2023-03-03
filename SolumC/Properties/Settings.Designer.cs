@@ -25,7 +25,7 @@ namespace SolumC.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\josec")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string direccion {
             get {
                 return ((string)(this["direccion"]));
@@ -37,19 +37,19 @@ namespace SolumC.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\josec")]
-        public string direccionMatriz {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string direccionMatrizSup {
             get {
-                return ((string)(this["direccionMatriz"]));
+                return ((string)(this["direccionMatrizSup"]));
             }
             set {
-                this["direccionMatriz"] = value;
+                this["direccionMatrizSup"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\josec")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string direccionBaldosa {
             get {
                 return ((string)(this["direccionBaldosa"]));
@@ -61,7 +61,7 @@ namespace SolumC.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\josec")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string direccionBicicleta {
             get {
                 return ((string)(this["direccionBicicleta"]));
@@ -73,13 +73,25 @@ namespace SolumC.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\josec")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string direccionPatinete {
             get {
                 return ((string)(this["direccionPatinete"]));
             }
             set {
                 this["direccionPatinete"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string direccionMatrizInf {
+            get {
+                return ((string)(this["direccionMatrizInf"]));
+            }
+            set {
+                this["direccionMatrizInf"] = value;
             }
         }
     }

@@ -25,28 +25,10 @@ namespace SolumC
         public static Bitmap bitEtiqueta;
 
 
-        public static void btnEtiqueta(Bitmap etiqueta)
-        {
-            bitEtiqueta = etiqueta;
-            /*
-            // Crear y configurar el control OpenFileDialog
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Seleccionar etiqueta";
-            openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-
-            // Mostrar el cuadro de diálogo OpenFileDialog
-            if (openFileDialog.ShowDialog() == true)
-            {
-                // Cargar la imagen en el control Image
-                bitEtiqueta = new Bitmap(openFileDialog.FileName);
-            }
-            */
-        }
-
 
         public static void btnGenerar(String direccion, String cantidad, String version, String ano, String semana, String rutaCarpeta)
         {
+            bitEtiqueta = new Bitmap(direccion);
             for (int i = 0; i < Convert.ToInt64(cantidad); i++)
             {
                 merge(i, version, ano, semana,rutaCarpeta);
@@ -64,8 +46,8 @@ namespace SolumC
             // Dibuja las dos imágenes en el objeto Bitmap combinado
             using (var g = Graphics.FromImage(combinedImage))
             {
-                g.DrawImage(bitEtiqueta, 0, 0, 57, 151);
-                g.DrawImage(barcode(version, ano, semana, i), 0, 50, 151, 50);
+                g.DrawImage(bitEtiqueta, 0, 0, 302, 151);
+                g.DrawImage(barcode(version, ano, semana, i), 0, 50, 302, 50);
             }
 
             // Crea un objeto BitmapSource a partir del objeto Bitmap
@@ -77,7 +59,7 @@ namespace SolumC
 
 
             // guarda nueva pegatina 
-            combinedImage.Save(rutaCarpeta + "\\" + "SOL-AR-B-" + version + "-" + ano + semana + "-" + i + ".png");
+            combinedImage.Save(rutaCarpeta + "\\" + "SOL-AR-EB-" + version + "-" + ano + semana + "-" + i + ".png");
 
         }
 
@@ -90,7 +72,7 @@ namespace SolumC
 
 
             // poner el largo del archivo y las coordenadas en x a 0
-            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-B-" + version + "-" + ano + semana + "-" + indice, System.Drawing.Color.Black, System.Drawing.Color.Transparent, 151, 50);
+            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-EB-" + version + "-" + ano + semana + "-" + indice, System.Drawing.Color.Black, System.Drawing.Color.Transparent, 302, 50);
 
             Bitmap bitmapCo = new Bitmap(co);
 

@@ -118,14 +118,6 @@
           }
         }
       },
-      "SvgLib/1.0.0.3": {
-        "runtime": {
-          "lib/netstandard2.0/SvgLib.dll": {
-            "assemblyVersion": "1.0.0.3",
-            "fileVersion": "1.0.0.3"
-          }
-        }
-      },
       "System.Drawing.Common/5.0.2": {
         "dependencies": {
           "Microsoft.Win32.SystemEvents": "5.0.0"
@@ -210,13 +202,6 @@
       "sha512": "sha512-ZWwius4x0945Q3Hn+dQDhwpY3RGR+eE2A7D1J/O84jTdxhczYrwENrVPhgXcKX8gHLx/F8AdCjfQmCCIb6Admw==",
       "path": "potrace/1.0.1",
       "hashPath": "potrace.1.0.1.nupkg.sha512"
-    },
-    "SvgLib/1.0.0.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-9iv8uExSYC/AClCaa/e7inlA1ike6tA8Fp/33W3xABqQ1MzfRDEMTTY/LNfQOlN3fAWVkqehvO+eTDXTfUZZnA==",
-      "path": "svglib/1.0.0.3",
-      "hashPath": "svglib.1.0.0.3.nupkg.sha512"
     },
     "System.Drawing.Common/5.0.2": {
       "type": "package",

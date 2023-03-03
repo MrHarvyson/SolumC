@@ -30,9 +30,10 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{StaticResource AmarilloClaro}" />
+                <Setter Property="Foreground" Value="{StaticResource Negro}" />
                 <Setter Property="Effect">
                     <Setter.Value>
-                        <DropShadowEffect ShadowDepth="5" Color="#b6dbc4" Opacity="0.4" BlurRadius="40"/>
+                        <DropShadowEffect ShadowDepth="5" Color="#ffecb7" Opacity="0.4" BlurRadius="40"/>
                     </Setter.Value>
                 </Setter>
             </Trigger>

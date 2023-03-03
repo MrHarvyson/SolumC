@@ -3,19 +3,22 @@
   <Profiles />
   <Settings>
     <Setting Name="direccion" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\josec</Value>
+      <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="direccionMatriz" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\josec</Value>
+    <Setting Name="direccionMatrizSup" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="direccionBaldosa" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\josec</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="direccionBicicleta" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\josec</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="direccionPatinete" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\josec</Value>
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="direccionMatrizInf" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

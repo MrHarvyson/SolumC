@@ -24,28 +24,9 @@ namespace SolumC
         public static Bitmap bitEtiqueta;
 
 
-        public static void btnEtiqueta(Bitmap etiqueta)
-        {
-            bitEtiqueta = etiqueta;
-            /*
-            // Crear y configurar el control OpenFileDialog
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Seleccionar etiqueta";
-            openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-
-            // Mostrar el cuadro de diálogo OpenFileDialog
-            if (openFileDialog.ShowDialog() == true)
-            {
-                // Cargar la imagen en el control Image
-                bitEtiqueta = new Bitmap(openFileDialog.FileName);
-            }
-            */
-        }
-
-
         public static void btnGenerar(String direccion, String cantidad, String version, String ano, String semana, String rutaCarpeta)
         {
+            bitEtiqueta = new Bitmap(direccion);
             for (int i = 0; i < Convert.ToInt64(cantidad); i++)
             {
                 merge(i, version, ano, semana, rutaCarpeta);

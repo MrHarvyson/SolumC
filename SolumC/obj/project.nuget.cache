@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "FQVKnj6mrR6oH2SoG9Nmz0nQGRhZk9S3wrT/2TWOMevWVltObwobyVOu0/aHVWnlsij2yI37gsGxUnAxr6xamQ==",
+  "dgSpecHash": "dtxakAhUp6ViU1sCbH0FIus6R1GeioOwEQB5vG/NVMzI4GuQCP9Bqp0arDEJnS7lhk1D1q4VDx9Z8QObMYSfHg==",
   "success": true,
   "projectFilePath": "C:\\Users\\josec\\Documents\\Git\\SolumC\\SolumC\\SolumC.csproj",
   "expectedPackageFiles": [
@@ -11,7 +11,6 @@
     "C:\\Users\\josec\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\josec\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\josec\\.nuget\\packages\\potrace\\1.0.1\\potrace.1.0.1.nupkg.sha512",
-    "C:\\Users\\josec\\.nuget\\packages\\svglib\\1.0.0.3\\svglib.1.0.0.3.nupkg.sha512",
     "C:\\Users\\josec\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512",
     "C:\\Users\\josec\\.nuget\\packages\\system.text.json\\5.0.2\\system.text.json.5.0.2.nupkg.sha512"
   ],

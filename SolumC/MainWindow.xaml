@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolumC"
         mc:Ignorable="d"
-        Title="SOLUM | BARCODE" Height="350" Width="500"
+        Title="SOLUM | BARCODE" Height="350" Width="600"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Icon="img/iconSolum.png"
@@ -35,13 +35,27 @@
                 </Image.Effect>
             </Image>
 
-            <TextBlock  Grid.Row="2"
+            <Grid Grid.Row="2"
+                  Margin="0 0 0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="img/engranaje.png"
+                       Width="20"
+                       Margin="15 0 0 0"
+                       MouseDown="Ajustes_MouseDown"/>
+
+                <TextBlock  Grid.Column="1"
                     HorizontalAlignment="Center"
                     FontSize="8"
                     FontFamily="Gotham"
                     VerticalAlignment="Bottom"
                     Foreground="{StaticResource grisOscuro}"
                     >Version 2.01</TextBlock>
+            </Grid>
+            
 
             <StackPanel VerticalAlignment="Center"
                         Grid.Row="1">
@@ -94,20 +108,17 @@
 
         </Grid>
 
-        <Grid Grid.Column="1"
-              Background="{StaticResource verdeClaro}">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition />
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
+        <!-- panel ajustes-->
+        <Grid Name="panelAjustes" 
+              Grid.Column="1"
+              Background="{StaticResource verdeClaro}"
+              Visibility="Collapsed">
 
-            <Grid Grid.Row="0"
-                  Margin="20 20 0 0">
-
+            <Grid Margin="20">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
                     <ColumnDefinition/>
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
@@ -115,11 +126,320 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
 
+                
+
+                <!-- matriz inf-->
+                <TextBlock 
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Foreground="{StaticResource Negro}"
+                        FontWeight="Bold"
+                        FontFamily="Gotham"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Bottom">MATRIZ INF</TextBlock>
+
+                <TextBox x:Name="txtCarpetaMatrizInf" 
+                         Grid.Column="1"
+                         Grid.Row="0"
+                         Background="Transparent"
+                         BorderThickness="0 0 0 1" 
+                         VerticalAlignment="Bottom"
+                         Margin="10 0"
+                         Foreground="{StaticResource Negro}"></TextBox>
+
+                <Image x:Name="imgMatrizInf" 
+                       Grid.Column="2" 
+                       Grid.Row="0"
+                       Width="25"
+                       MouseDown="MatrizInf_MouseDown"
+                       VerticalAlignment="Bottom"
+                       Source="img/carpeta.png"></Image>
+
+                <!-- matriz sup-->
+                <TextBlock 
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        Foreground="{StaticResource Negro}"
+                        FontWeight="Bold"
+                        FontFamily="Gotham"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Bottom">MATRIZ SUP</TextBlock>
+
+                <TextBox x:Name="txtCarpetaMatrizSup" 
+                         Grid.Column="1"
+                         Grid.Row="1"
+                         Background="Transparent"
+                         BorderThickness="0 0 0 1" 
+                         VerticalAlignment="Bottom"
+                         Margin="10 0"
+                         Foreground="{StaticResource Negro}"></TextBox>
+
+                <Image x:Name="imgMatrizSup" 
+                       Grid.Column="2" 
+                       Grid.Row="1"
+                       Width="25"
+                       MouseDown="MatrizSup_MouseDown"
+                       VerticalAlignment="Bottom"
+                       Source="img/carpeta.png"></Image>
+
+                <!-- baldosa-->
+                <TextBlock 
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        Foreground="{StaticResource Negro}"
+                        FontWeight="Bold"
+                        FontFamily="Gotham"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Bottom">BALDOSA</TextBlock>
+
+                <TextBox x:Name="txtCarpetaBaldosa" 
+                         Grid.Column="1"
+                         Grid.Row="2"
+                         Background="Transparent"
+                         BorderThickness="0 0 0 1" 
+                         VerticalAlignment="Bottom"
+                         Margin="10 0"
+                         Foreground="{StaticResource Negro}"></TextBox>
+
+                <Image x:Name="imgBaldosa" 
+                       Grid.Column="2" 
+                       Grid.Row="2"
+                       Width="25"
+                       MouseDown="Baldosa_MouseDown"
+                       VerticalAlignment="Bottom"
+                       Source="img/carpeta.png"></Image>
+
+                <!-- bicicleta-->
+
+                <TextBlock 
+                        Grid.Column="0"
+                        Grid.Row="3"
+                        Foreground="{StaticResource Negro}"
+                        FontWeight="Bold"
+                        FontFamily="Gotham"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Bottom">BICIBLETA</TextBlock>
+                
+                <TextBox x:Name="txtCarpetaBicicleta" 
+                         Grid.Column="1"
+                         Grid.Row="3"
+                         Background="Transparent"
+                         BorderThickness="0 0 0 1" 
+                         VerticalAlignment="Bottom"
+                         Margin="10 0"
+                         Foreground="{StaticResource Negro}"></TextBox>
+
+                <Image x:Name="imgBicicleta" 
+                       Grid.Column="2" 
+                       Grid.Row="3"
+                       Width="25"
+                       MouseDown="Bicicleta_MouseDown"
+                       VerticalAlignment="Bottom"
+                       Source="img/carpeta.png"></Image>
+
+                <!-- patinete-->
+
+                <TextBlock 
+                        Grid.Column="0"
+                        Grid.Row="4"
+                        Foreground="{StaticResource Negro}"
+                        FontWeight="Bold"
+                        FontFamily="Gotham"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Bottom">PATINETE</TextBlock>
+                
+                <TextBox x:Name="txtCarpetaPatinete" 
+                         Grid.Column="1"
+                         Grid.Row="4"
+                         Background="Transparent"
+                         BorderThickness="0 0 0 1" 
+                         VerticalAlignment="Bottom"
+                         Margin="10 0"
+                         Foreground="{StaticResource Negro}"/>
+
+                <Image x:Name="imgPatinete" 
+                       Grid.Column="2" 
+                       Grid.Row="4"
+                       Width="25"
+                       MouseDown="Patinete_MouseDown"
+                       VerticalAlignment="Bottom"
+                       Source="img/carpeta.png"></Image>
+
+                <!-- -->
+
+                <TextBlock 
+                        Grid.Column="0"
+                        Grid.Row="5"
+                        Name="btnCarpeta" 
+                        Foreground="{StaticResource Negro}"
+                        FontWeight="Bold"
+                        FontFamily="Gotham"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Bottom">CARPETA</TextBlock>
+
+                <TextBox x:Name="txtCarpeta" 
+                         Grid.Column="1"
+                         Grid.Row="5"
+                         Background="Transparent"
+                         BorderThickness="0 0 0 1" 
+                         VerticalAlignment="Bottom"
+                         Margin="10 0"
+                         Foreground="{StaticResource Negro}"></TextBox>
+
+                <Image Grid.Column="2" 
+                       Grid.Row="5"
+                       MouseDown="Carpeta_MouseDown"
+                       Width="25"
+                       VerticalAlignment="Bottom"
+                       Source="img/carpeta.png"></Image>
+
+            </Grid>
+            
+            
+        </Grid>
+        
+        
+        <!-- panel principal-->
+        <Grid x:Name="panelPrincipal"
+              Visibility="Visible"
+              Grid.Column="1"
+              Background="{StaticResource verdeClaro}">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0"
+                  Margin="20 20 20 0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+
+                <TextBlock x:Name="txtPrecodigo" 
+                           Grid.Column="0"
+                           Grid.Row="1"
+                           VerticalAlignment="Bottom"
+                           FontFamily="Gotham"
+                           FontSize="10"
+                           Foreground="{DynamicResource Negro}"
+                           HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Grid.Column="1"
+                           Grid.Row="0"
+                           VerticalAlignment="Bottom"
+                           FontFamily="Gotham"
+                           FontSize="10"
+                           Foreground="{DynamicResource Gris}"
+                           HorizontalAlignment="Center">Versión</TextBlock>
+                <TextBox Grid.Column="1"
+                         Grid.Row="1"  
+                         Name="txtVersion" 
+                             Background="Transparent"
+                             BorderThickness="0 0 0 1"
+                             Width="50"
+                            FontFamily="Gotham"
+                           FontSize="10"
+                             VerticalAlignment="Bottom"
+                         HorizontalContentAlignment="Center"
+                             Foreground="{StaticResource Negro}"
+                             BorderBrush="{StaticResource Gris}"
+                             HorizontalAlignment="Center"></TextBox>
+                <TextBlock Grid.Column="2"
+                           Grid.Row="1"
+                           FontFamily="Gotham"
+                           FontSize="10"
+                           VerticalAlignment="Bottom"
+                           HorizontalAlignment="Center">-</TextBlock>
+                <TextBlock Grid.Column="3"
+                           Grid.Row="0"
+                           FontFamily="Gotham"
+                           FontSize="10"
+                           Foreground="{DynamicResource Gris}"
+                           VerticalAlignment="Bottom"
+                           HorizontalAlignment="Center">Año</TextBlock>
+
+                <TextBox Grid.Column="3"
+                             Grid.Row="1" 
+                             Name="txtAno" 
+                             Background="Transparent"
+                             BorderThickness="0 0 0 1"
+                         HorizontalContentAlignment="Center"
+                             Width="50"
+                         FontFamily="Gotham"
+                           FontSize="10"
+                             VerticalAlignment="Bottom"
+                             Foreground="{StaticResource Negro}"
+                             BorderBrush="{StaticResource Gris}"
+                             HorizontalAlignment="Center"></TextBox>
+
+                <TextBlock Grid.Column="4"
+                           Grid.Row="0"
+                           FontFamily="Gotham"
+                           Foreground="{DynamicResource Gris}"
+                           FontSize="10"
+                           VerticalAlignment="Bottom"
+                           HorizontalAlignment="Center">Semana</TextBlock>
+                <TextBox Grid.Column="4"
+                             Grid.Row="1" 
+                             Name="txtSemana" 
+                             Background="Transparent"
+                             BorderThickness="0 0 0 1"
+                             Width="50"
+                         FontFamily="Gotham"
+                         HorizontalContentAlignment="Center"
+                           FontSize="10"
+                             VerticalAlignment="Bottom"
+                             Foreground="{StaticResource Negro}"
+                             BorderBrush="{StaticResource Gris}"
+                             HorizontalAlignment="Center"></TextBox>
+
+                <TextBlock Grid.Column="5"
+                           Grid.Row="1"
+                           FontFamily="Gotham"
+                           FontSize="10"
+                           VerticalAlignment="Bottom"
+                           HorizontalAlignment="Center">-</TextBlock>
+                <TextBlock Grid.Column="6"
+                           Grid.Row="0"
+                           Foreground="{StaticResource Gris}"
+                           VerticalAlignment="Bottom"
+                           FontFamily="Gotham"
+                           FontSize="10"
+                           HorizontalAlignment="Center">Cantidad</TextBlock>
+                <TextBox Grid.Column="6"
+                             Grid.Row="1" 
+                             x:Name="txtCantidad" 
+                             Background="Transparent"
+                             BorderThickness="0 0 0 1"
+                         HorizontalContentAlignment="Center"
+                             Width="50"
+                         FontFamily="Gotham"
+                           FontSize="10"
+                             VerticalAlignment="Bottom"
+                             Foreground="{StaticResource Negro}"
+                             BorderBrush="{StaticResource Gris}"
+                             HorizontalAlignment="Center"></TextBox>
+                <!--
+
                 <TextBlock Grid.Column="0"
-                           Grid.Row="0" 
-                               Margin="0 0 0 10"
+                           Grid.Row="0"
                            Foreground="{StaticResource Negro}"
                            VerticalAlignment="Bottom">Versión:</TextBlock>
                 <TextBox Grid.Column="1"
@@ -127,14 +447,12 @@
                              Background="Transparent"
                              BorderThickness="0 0 0 1"
                              Width="50"
-                             Margin="0 0 0 10"
                              VerticalAlignment="Bottom"
                              Foreground="{StaticResource Negro}"
                              BorderBrush="{StaticResource Negro}"
                              HorizontalAlignment="Left"></TextBox>
                 <TextBlock Grid.Column="0"
                            Grid.Row="1"
-                               Margin="0 0 0 10"
                            Foreground="{StaticResource Negro}"
                            VerticalAlignment="Bottom">Año:</TextBlock>
                 <TextBox Grid.Column="1"
@@ -143,14 +461,12 @@
                              Background="Transparent"
                              BorderThickness="0 0 0 1"
                              Width="50"
-                             Margin="0 0 0 10"
                              VerticalAlignment="Bottom"
                              Foreground="{StaticResource Negro}"
                              BorderBrush="{StaticResource Negro}"
                              HorizontalAlignment="Left"></TextBox>
                 <TextBlock Grid.Column="0"
                            Grid.Row="2"
-                               Margin="0 0 0 10"
                            Foreground="{StaticResource Negro}"
                            VerticalAlignment="Bottom">Semana del año:</TextBlock>
                 <TextBox Grid.Column="1"
@@ -159,7 +475,6 @@
                              Background="Transparent"
                              BorderThickness="0 0 0 1"
                              Width="50"
-                             Margin="0 0 0 10"
                              VerticalAlignment="Bottom"
                              Foreground="{StaticResource Negro}"
                              BorderBrush="{StaticResource Negro}"
@@ -178,7 +493,7 @@
                              Foreground="{StaticResource Negro}"
                              BorderBrush="{StaticResource Negro}"
                              HorizontalAlignment="Left"></TextBox>
-
+-->
             </Grid>
 
             <Grid Grid.Row="1"
@@ -196,126 +511,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <TextBlock 
-                        Grid.Column="0"
-                        Grid.Row="0"
-                        Name="btnCarpetaMatriz" 
-                        Foreground="{StaticResource Negro}"
-                        FontWeight="Bold"
-                        FontFamily="Gotham"
-                        HorizontalAlignment="Left" 
-                        VerticalAlignment="Bottom">ETIQUETA</TextBlock>
-
-                <!-- matriz-->
-
-                <TextBox x:Name="txtCarpetaMatriz" 
-                         Grid.Column="1"
-                         Grid.Row="0"
-                         Background="Transparent"
-                         BorderThickness="0 0 0 1" 
-                         VerticalAlignment="Bottom"
-                         Margin="10 0"
-                         Foreground="{StaticResource Negro}"
-                         IsEnabled="False"></TextBox>
-
-                <Image x:Name="imgMatriz" 
-                       Grid.Column="2" 
-                       Grid.Row="0"
-                       Width="25"
-                       MouseDown="Matriz_MouseDown"
-                       VerticalAlignment="Bottom"
-                       Source="img/carpeta.png"></Image>
-
-                <!-- baldosa-->
-
-                <TextBox x:Name="txtCarpetaBaldosa" 
-                         Grid.Column="1"
-                         Grid.Row="0"
-                         Background="Transparent"
-                         BorderThickness="0 0 0 1" 
-                         VerticalAlignment="Bottom"
-                         Margin="10 0"
-                         Foreground="{StaticResource Negro}"
-                         IsEnabled="False"></TextBox>
-
-                <Image x:Name="imgBaldosa" 
-                       Grid.Column="2" 
-                       Grid.Row="0"
-                       Width="25"
-                       MouseDown="Baldosa_MouseDown"
-                       VerticalAlignment="Bottom"
-                       Source="img/carpeta.png"></Image>
-
-                <!-- bicicleta-->
-
-                <TextBox x:Name="txtCarpetaBicicleta" 
-                         Grid.Column="1"
-                         Grid.Row="0"
-                         Background="Transparent"
-                         BorderThickness="0 0 0 1" 
-                         VerticalAlignment="Bottom"
-                         Margin="10 0"
-                         Foreground="{StaticResource Negro}"
-                         IsEnabled="False"></TextBox>
-
-                <Image x:Name="imgBicicleta" 
-                       Grid.Column="2" 
-                       Grid.Row="0"
-                       Width="25"
-                       MouseDown="Bicicleta_MouseDown"
-                       VerticalAlignment="Bottom"
-                       Source="img/carpeta.png"></Image>
-
-                <!-- patinete-->
-
-                <TextBox x:Name="txtCarpetaPatinete" 
-                         Grid.Column="1"
-                         Grid.Row="0"
-                         Background="Transparent"
-                         BorderThickness="0 0 0 1" 
-                         VerticalAlignment="Bottom"
-                         Margin="10 0"
-                         Foreground="{StaticResource Negro}" IsEnabled="False"/>
-
-                <Image x:Name="imgPatinete" 
-                       Grid.Column="2" 
-                       Grid.Row="0"
-                       Width="25"
-                       MouseDown="Patinete_MouseDown"
-                       VerticalAlignment="Bottom"
-                       Source="img/carpeta.png"></Image>
-
-                <!-- -->
-
-                <TextBlock 
-                        Grid.Column="0"
-                        Grid.Row="1"
-                        Name="btnCarpeta" 
-                        Foreground="{StaticResource Negro}"
-                        FontWeight="Bold"
-                        FontFamily="Gotham"
-                        HorizontalAlignment="Left" 
-                        VerticalAlignment="Bottom">CARPETA</TextBlock>
-
-                <TextBox x:Name="txtCarpeta" 
-                         Grid.Column="1"
-                         Grid.Row="1"
-                         Background="Transparent"
-                         BorderThickness="0 0 0 1" 
-                         VerticalAlignment="Bottom"
-                         Margin="10 0"
-                         Foreground="{StaticResource Negro}"
-                         IsEnabled="False"></TextBox>
-
-                <Image Grid.Column="2" 
-                       Grid.Row="1"
-                       MouseDown="Carpeta_MouseDown"
-                       Width="25"
-                       VerticalAlignment="Bottom"
-                       Source="img/carpeta.png"></Image>
-
-
-
+                
 
             </Grid>
 

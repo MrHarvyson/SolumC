@@ -11,11 +11,12 @@
 
   <ItemGroup>
     <None Remove="img\bateria.png" />
-    <None Remove="img\Bicicleta.png" />
     <None Remove="img\carpeta.png" />
+    <None Remove="img\engranaje.png" />
     <None Remove="img\iconBicicleta.png" />
     <None Remove="img\iconPatinete.png" />
     <None Remove="img\panelSolar.png" />
+    <None Remove="img\Template_Bicicletas_v1.png" />
     <None Remove="Resources\logoSolum.png" />
   </ItemGroup>
 
@@ -28,19 +29,18 @@
     <PackageReference Include="FontAwesome.Sharp" Version="6.2.1" />
     <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="12.3.0" />
     <PackageReference Include="Potrace" Version="1.0.1" />
-    <PackageReference Include="SvgLib" Version="1.0.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="img\bateria.png" />
-    <Resource Include="img\Bicicleta.png" />
     <Resource Include="img\carpeta.png" />
+    <Resource Include="img\engranaje.png" />
     <Resource Include="img\iconBicicleta.png" />
     <Resource Include="img\iconSolum.png" />
     <Resource Include="img\logoSolum.png" />
-    <Resource Include="img\Matriz_inferior.png" />
     <Resource Include="img\panelSolar.png" />
     <Resource Include="img\iconPatinete.png" />
+    <Resource Include="img\Template_Bicicletas_v1.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -22,48 +22,41 @@ namespace SolumC
 {
     class Matriz
     {
-        public static Bitmap bitEtiqueta;
+        public static Bitmap bitEtiquetaSup, bitEtiquetaInf;
 
-        public static void btnEtiqueta(Bitmap etiqueta)
+        
+
+        public static void btnGenerarInf(String direccion,String cantidad, String version, String ano, String semana, String rutaCarpeta)
         {
-            bitEtiqueta = etiqueta;
-            /*
-            // Crear y configurar el control OpenFileDialog
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Seleccionar etiqueta";
-            openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-
-            // Mostrar el cuadro de diálogo OpenFileDialog
-            if (openFileDialog.ShowDialog() == true)
-            {
-                // Cargar la imagen en el control Image
-                bitEtiqueta = new Bitmap(openFileDialog.FileName);
-            }
-            */
-        }
-
-        public static void btnGenerar(String direccion,String cantidad, String version, String ano, String semana, String rutaCarpeta)
-        {
+            bitEtiquetaInf = new Bitmap(direccion);
 
             for (int i = 0; i < Convert.ToInt64(cantidad); i++)
             {
-                merge(i,version,ano, semana, rutaCarpeta);
+                mergeInf(i,version,ano, semana, rutaCarpeta);
+            }
+        }
+
+        public static void btnGenerarSup(String direccion, String cantidad, String version, String ano, String semana, String rutaCarpeta)
+        {
+            bitEtiquetaSup = new Bitmap(direccion);
+            for (int i = 0; i < Convert.ToInt64(cantidad); i++)
+            {
+                mergeSup(i, version, ano, semana, rutaCarpeta);
             }
         }
 
 
-        public static void merge(int i, String version, String ano, String semana, String rutaCarpeta)
+        public static void mergeInf(int i, String version, String ano, String semana, String rutaCarpeta)
         {
             // Crea un nuevo objeto Bitmap para almacenar las dos imágenes combinadas
-            Bitmap combinedImage = new Bitmap(bitEtiqueta.Width, bitEtiqueta.Height);
+            Bitmap combinedImage = new Bitmap(bitEtiquetaInf.Width, bitEtiquetaInf.Height);
 
 
             // Dibuja las dos imágenes en el objeto Bitmap combinado
             using (var g = Graphics.FromImage(combinedImage))
             {
-                g.DrawImage(bitEtiqueta, 0, 0, 591, 886);
-                g.DrawImage(barcode(version, ano, semana, i), -5, 490, 600, 100);
+                g.DrawImage(bitEtiquetaInf, 0, 0, 591, 886);
+                g.DrawImage(barcodeInf(version, ano, semana, i), -5, 490, 600, 100);
             }
 
             // Crea un objeto BitmapSource a partir del objeto Bitmap
@@ -75,12 +68,12 @@ namespace SolumC
 
 
             // guarda nueva pegatina 
-            combinedImage.Save(rutaCarpeta + "\\" + "SOL-AR-M-" + version + "-" + ano + semana + "-" + i + ".png");
+            combinedImage.Save(rutaCarpeta + "\\" + "SOL-AR-M-INF-" + version + "-" + ano + semana + "-" + i + ".png");
 
         }
 
         // crea codigos de barra
-        public static Bitmap barcode(String version, String ano, String semana, int indice)
+        public static Bitmap barcodeInf(String version, String ano, String semana, int indice)
         {
             BarcodeLib.Barcode codigo = new BarcodeLib.Barcode();
             codigo.IncludeLabel = true;
@@ -89,6 +82,48 @@ namespace SolumC
 
             // poner el largo del archivo y las coordenadas en x a 0
             System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-M-" + version + "-" + ano + semana + "-" + indice, System.Drawing.Color.Black, System.Drawing.Color.Transparent, 600, 100);
+
+            Bitmap bitmapCo = new Bitmap(co);
+
+            return bitmapCo;
+        }
+
+        public static void mergeSup(int i, String version, String ano, String semana, String rutaCarpeta)
+        {
+            // Crea un nuevo objeto Bitmap para almacenar las dos imágenes combinadas
+            Bitmap combinedImage = new Bitmap(bitEtiquetaSup.Width, bitEtiquetaSup.Height);
+
+
+            // Dibuja las dos imágenes en el objeto Bitmap combinado
+            using (var g = Graphics.FromImage(combinedImage))
+            {
+                g.DrawImage(bitEtiquetaSup, 0, 0, 302, 189);
+                g.DrawImage(barcodeSup(version, ano, semana, i), 0, 75, 302, 100);
+            }
+
+            // Crea un objeto BitmapSource a partir del objeto Bitmap
+            var bitmapSource = Imaging.CreateBitmapSourceFromHBitmap(
+                combinedImage.GetHbitmap(),
+                IntPtr.Zero,
+                System.Windows.Int32Rect.Empty,
+                BitmapSizeOptions.FromEmptyOptions());
+
+
+            // guarda nueva pegatina 
+            combinedImage.Save(rutaCarpeta + "\\" + "SOL-AR-M-SUP-" + version + "-" + ano + semana + "-" + i + ".png");
+
+        }
+
+        // crea codigos de barra
+        public static Bitmap barcodeSup(String version, String ano, String semana, int indice)
+        {
+            BarcodeLib.Barcode codigo = new BarcodeLib.Barcode();
+            codigo.IncludeLabel = true;
+            codigo.LabelFont = new Font("Gotham", 10);
+
+
+            // poner el largo del archivo y las coordenadas en x a 0
+            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-M-" + version + "-" + ano + semana + "-" + indice, System.Drawing.Color.Black, System.Drawing.Color.Transparent, 302, 100);
 
             Bitmap bitmapCo = new Bitmap(co);
 

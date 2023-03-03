@@ -1,6 +1,5 @@
 ﻿using ImageMagick;
 using Microsoft.Win32;
-using SvgLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,8 +26,8 @@ namespace SolumC
 {
     public partial class MainWindow : Window
     {
-        Bitmap bitEtiqueta ;
-        public static string rutaSalida, rutaMatriz, rutaBaldosa, rutaBicicleta, rutaPatinete;
+        Bitmap bitEtiqueta, bitEtiquetaSup, bitEtiquetaInf;
+        public static string rutaSalida, rutaMatrizSup, rutaMatrizInf, rutaBaldosa, rutaBicicleta, rutaPatinete, preCodigo;
 
         public MainWindow()
         {
@@ -36,7 +35,8 @@ namespace SolumC
             InitializeComponent();
 
             rutaSalida = Properties.Settings.Default.direccion;
-            rutaMatriz = Properties.Settings.Default.direccionMatriz;
+            rutaMatrizSup = Properties.Settings.Default.direccionMatrizSup;
+            rutaMatrizInf = Properties.Settings.Default.direccionMatrizInf;
             rutaBaldosa = Properties.Settings.Default.direccionBaldosa;
             rutaBicicleta = Properties.Settings.Default.direccionBicicleta;
             rutaPatinete = Properties.Settings.Default.direccionPatinete;
@@ -46,17 +46,14 @@ namespace SolumC
             txtCarpetaBaldosa.Text = rutaBaldosa;
             txtCarpetaBicicleta.Text = rutaBicicleta;
             txtCarpetaPatinete.Text = rutaPatinete;
-            txtCarpetaMatriz.Text = rutaMatriz;
+            txtCarpetaMatrizInf.Text = rutaMatrizInf;
+            txtCarpetaMatrizSup.Text = rutaMatrizSup;
 
-            txtCarpetaBaldosa.Visibility = Visibility.Collapsed;
-            txtCarpetaBicicleta.Visibility = Visibility.Collapsed;
-            txtCarpetaPatinete.Visibility = Visibility.Collapsed;
-            txtCarpetaMatriz.Visibility = Visibility.Visible;
+            preCodigo = "SOL - AR - M -";
+            txtPrecodigo.Text = preCodigo;
 
-            imgBaldosa.Visibility = Visibility.Collapsed;
-            imgBicicleta.Visibility = Visibility.Collapsed;
-            imgPatinete.Visibility = Visibility.Collapsed;
-            imgMatriz.Visibility = Visibility.Visible;
+            panelPrincipal.Visibility= Visibility.Visible;
+            panelAjustes.Visibility = Visibility.Collapsed;
 
         }
 
@@ -66,33 +63,20 @@ namespace SolumC
         {
             if (RbtMatriz.IsChecked == true)
             {
-                Matriz.btnGenerar(txtCarpetaMatriz.Text,txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
-                imgBaldosa.Visibility = Visibility.Collapsed;
-                imgBicicleta.Visibility = Visibility.Collapsed;
-                imgPatinete.Visibility = Visibility.Collapsed;
-                imgMatriz.Visibility = Visibility.Visible;
+                Matriz.btnGenerarInf(Properties.Settings.Default.direccionMatrizInf, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
+                Matriz.btnGenerarSup(Properties.Settings.Default.direccionMatrizSup, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
             }
             if(RbtBicicleta.IsChecked== true)
             {
-                Bicicleta.btnGenerar(txtCarpetaBicicleta.Text,txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
-                imgBaldosa.Visibility = Visibility.Collapsed;
-                imgBicicleta.Visibility = Visibility.Visible;
-                imgPatinete.Visibility = Visibility.Collapsed;
-                imgMatriz.Visibility = Visibility.Collapsed;
+                Bicicleta.btnGenerar(Properties.Settings.Default.direccionBicicleta, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
             }
-            if (RbtBaldosa.IsChecked == true) {
-                Baldosa.btnGenerar(txtCarpetaBaldosa.Text, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
-                imgBaldosa.Visibility = Visibility.Visible;
-                imgBicicleta.Visibility = Visibility.Collapsed;
-                imgPatinete.Visibility = Visibility.Collapsed;
-                imgMatriz.Visibility = Visibility.Collapsed;
+            if (RbtBaldosa.IsChecked == true) 
+            {
+                Baldosa.btnGenerar(Properties.Settings.Default.direccionBaldosa, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
             }
-            if (RbtPatinete.IsChecked == true) {
-                Patinete.btnGenerar(txtCarpetaPatinete.Text,txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
-                imgBaldosa.Visibility = Visibility.Collapsed;
-                imgBicicleta.Visibility = Visibility.Collapsed;
-                imgPatinete.Visibility = Visibility.Visible;
-                imgMatriz.Visibility = Visibility.Collapsed;
+            if (RbtPatinete.IsChecked == true) 
+            {
+                Patinete.btnGenerar(Properties.Settings.Default.direccionPatinete, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
             }
 
             txtCantidad.Text = "";
@@ -120,7 +104,7 @@ namespace SolumC
             
         }
 
-        private void Matriz_MouseDown(object sender, MouseButtonEventArgs e)
+        private void MatrizSup_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -131,15 +115,35 @@ namespace SolumC
             // Mostrar el cuadro de diálogo OpenFileDialog
             if (openFileDialog.ShowDialog() == true)
             {
-                rutaMatriz = openFileDialog.FileName;
-                Properties.Settings.Default.direccionMatriz = rutaMatriz;
+                rutaMatrizSup = openFileDialog.FileName;
+                Properties.Settings.Default.direccionMatrizSup = rutaMatrizSup;
                 Properties.Settings.Default.Save();
                 // Cargar la imagen en el control Image
-                bitEtiqueta = new Bitmap(openFileDialog.FileName);
-                Matriz.btnEtiqueta(bitEtiqueta);
-                txtCarpetaMatriz.Text = rutaMatriz;
+                bitEtiquetaSup = new Bitmap(openFileDialog.FileName);
+                txtCarpetaMatrizSup.Text = rutaMatrizSup;
             }
             
+        }
+
+        private void MatrizInf_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Seleccionar etiqueta";
+            openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+            // Mostrar el cuadro de diálogo OpenFileDialog
+            if (openFileDialog.ShowDialog() == true)
+            {
+                rutaMatrizInf = openFileDialog.FileName;
+                Properties.Settings.Default.direccionMatrizInf = rutaMatrizInf;
+                Properties.Settings.Default.Save();
+                // Cargar la imagen en el control Image
+                bitEtiquetaInf = new Bitmap(openFileDialog.FileName);
+                txtCarpetaMatrizInf.Text = rutaMatrizInf;
+            }
+
         }
 
         private void Baldosa_MouseDown(object sender, MouseButtonEventArgs e)
@@ -157,7 +161,7 @@ namespace SolumC
                 Properties.Settings.Default.Save();
                 // Cargar la imagen en el control Image
                 bitEtiqueta = new Bitmap(openFileDialog.FileName);
-                Baldosa.btnEtiqueta(bitEtiqueta);
+                //Baldosa.btnEtiqueta(bitEtiqueta);
                 txtCarpetaBaldosa.Text = rutaBaldosa;
             }
         }
@@ -178,13 +182,16 @@ namespace SolumC
                 Properties.Settings.Default.Save();
                 // Cargar la imagen en el control Image
                 bitEtiqueta = new Bitmap(openFileDialog.FileName);
-                Bicicleta.btnEtiqueta(bitEtiqueta);
                 txtCarpetaBicicleta.Text = rutaBicicleta;
             }
             
         }
 
-        
+        private void Ajustes_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            panelPrincipal.Visibility = Visibility.Collapsed;
+            panelAjustes.Visibility = Visibility.Visible;
+        }
 
         private void Patinete_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -201,7 +208,6 @@ namespace SolumC
                 Properties.Settings.Default.Save();
                 // Cargar la imagen en el control Image
                 bitEtiqueta = new Bitmap(openFileDialog.FileName);
-                Patinete.btnEtiqueta(bitEtiqueta);
                 txtCarpetaPatinete.Text = rutaPatinete;
             }
             
@@ -209,59 +215,40 @@ namespace SolumC
 
         private void RbtBicicleta_Click(object sender, RoutedEventArgs e)
         {
-            imgBaldosa.Visibility = Visibility.Collapsed;
-            imgBicicleta.Visibility = Visibility.Visible;
-            imgPatinete.Visibility = Visibility.Collapsed;
-            imgMatriz.Visibility = Visibility.Collapsed;
 
-            txtCarpetaBaldosa.Visibility = Visibility.Collapsed;
-            txtCarpetaBicicleta.Visibility = Visibility.Visible;
-            txtCarpetaPatinete.Visibility = Visibility.Collapsed;
-            txtCarpetaMatriz.Visibility = Visibility.Collapsed;
+            txtPrecodigo.Text = "SOL - MOD - EB -";
+
+            panelPrincipal.Visibility = Visibility.Visible;
 
         }
 
         private void RbtMatriz_Click(object sender, RoutedEventArgs e)
         {
-            imgBaldosa.Visibility = Visibility.Collapsed;
-            imgBicicleta.Visibility = Visibility.Collapsed;
-            imgPatinete.Visibility = Visibility.Collapsed;
-            imgMatriz.Visibility = Visibility.Visible;
 
-            txtCarpetaBaldosa.Visibility = Visibility.Collapsed;
-            txtCarpetaBicicleta.Visibility = Visibility.Collapsed;
-            txtCarpetaPatinete.Visibility = Visibility.Collapsed;
-            txtCarpetaMatriz.Visibility = Visibility.Visible;
+            txtPrecodigo.Text = "SOL - AR - M -";
+
+            panelPrincipal.Visibility = Visibility.Visible;
+            panelAjustes.Visibility = Visibility.Collapsed;
 
         }
 
         private void RbtPatinete_Click(object sender, RoutedEventArgs e)
         {
-            imgBaldosa.Visibility = Visibility.Collapsed;
-            imgBicicleta.Visibility = Visibility.Collapsed;
-            imgPatinete.Visibility = Visibility.Visible;
-            imgMatriz.Visibility = Visibility.Collapsed;
 
+            txtPrecodigo.Text = "SOL - MOD - ES -";
 
-            txtCarpetaBaldosa.Visibility = Visibility.Collapsed;
-            txtCarpetaBicicleta.Visibility = Visibility.Collapsed;
-            txtCarpetaPatinete.Visibility = Visibility.Visible;
-            txtCarpetaMatriz.Visibility = Visibility.Collapsed;
+            panelPrincipal.Visibility = Visibility.Visible;
+            panelAjustes.Visibility = Visibility.Collapsed;
 
         }
 
         private void RbtBaldosa_Click(object sender, RoutedEventArgs e)
         {
-            imgBaldosa.Visibility = Visibility.Visible;
-            imgBicicleta.Visibility = Visibility.Collapsed;
-            imgPatinete.Visibility = Visibility.Collapsed;
-            imgMatriz.Visibility = Visibility.Collapsed;
 
+            txtPrecodigo.Text = "SOL - AR - B -";
 
-            txtCarpetaBaldosa.Visibility = Visibility.Visible;
-            txtCarpetaBicicleta.Visibility = Visibility.Collapsed;
-            txtCarpetaPatinete.Visibility = Visibility.Collapsed;
-            txtCarpetaMatriz.Visibility = Visibility.Collapsed;
+            panelPrincipal.Visibility = Visibility.Visible;
+            panelAjustes.Visibility = Visibility.Collapsed;
         }
     }
 }

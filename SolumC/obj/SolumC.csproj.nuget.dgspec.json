@@ -55,10 +55,6 @@
             "Potrace": {
               "target": "Package",
               "version": "[1.0.1, )"
-            },
-            "SvgLib": {
-              "target": "Package",
-              "version": "[1.0.0.3, )"
             }
           },
           "imports": [

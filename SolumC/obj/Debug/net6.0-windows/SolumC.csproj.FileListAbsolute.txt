@@ -6,7 +6,6 @@ C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\SolumC.pdb
 C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\Magick.NET-Q16-AnyCPU.dll
 C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\Magick.NET.Core.dll
 C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\Potrace.dll
-C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\SvgLib.dll
 C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\runtimes\linux-arm64\native\Magick.Native-Q16-arm64.dll.so
 C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\runtimes\linux-musl-x64\native\Magick.Native-Q16-x64.dll.so
 C:\Users\josec\Documents\Git\SolumC\SolumC\bin\Debug\net6.0-windows\runtimes\linux-x64\native\Magick.Native-Q16-x64.dll.so
