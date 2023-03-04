@@ -56,7 +56,7 @@ namespace SolumC
             using (var g = Graphics.FromImage(combinedImage))
             {
                 g.DrawImage(bitEtiquetaInf, 0, 0, 591, 886);
-                g.DrawImage(barcodeInf(version, ano, semana, i), -5, 490, 600, 100);
+                g.DrawImage(barcodeInf(version, ano, semana, i), -5, 500, 600, 100);
             }
 
             // Crea un objeto BitmapSource a partir del objeto Bitmap
@@ -98,7 +98,7 @@ namespace SolumC
             using (var g = Graphics.FromImage(combinedImage))
             {
                 g.DrawImage(bitEtiquetaSup, 0, 0, 302, 189);
-                g.DrawImage(barcodeSup(version, ano, semana, i), 0, 75, 302, 100);
+                g.DrawImage(barcodeSup(version, ano, semana, i), 0, 100, 302, 75);
             }
 
             // Crea un objeto BitmapSource a partir del objeto Bitmap
@@ -123,7 +123,7 @@ namespace SolumC
 
 
             // poner el largo del archivo y las coordenadas en x a 0
-            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-M-" + version + "-" + ano + semana + "-" + indice, System.Drawing.Color.Black, System.Drawing.Color.Transparent, 302, 100);
+            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-M-" + version + "-" + ano + semana + "-" + indice, System.Drawing.Color.Black, System.Drawing.Color.Transparent, 302, 75);
 
             Bitmap bitmapCo = new Bitmap(co);
 

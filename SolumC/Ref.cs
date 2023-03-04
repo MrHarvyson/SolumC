@@ -23,7 +23,6 @@ namespace SolumC
             }
         }
 
-
         public static void merge(int i, String version, String ano, String semana, String rutaCarpeta,String refe)
         {
 
@@ -35,7 +34,7 @@ namespace SolumC
             using (var g = Graphics.FromImage(combinedImage))
             {
                 g.DrawImage(bitEtiqueta, 0, 0, 265, 265);
-                g.DrawImage(barcode(version, ano, semana, i, refe), 0, 100, 265, 50);
+                g.DrawImage(barcode(version, ano, semana, i, refe), 0, 140, 265, 50);
             }
 
             // Crea un objeto BitmapSource a partir del objeto Bitmap
@@ -44,7 +43,6 @@ namespace SolumC
                 IntPtr.Zero,
                 System.Windows.Int32Rect.Empty,
                 BitmapSizeOptions.FromEmptyOptions());
-
 
             // guarda nueva pegatina 
             combinedImage.Save(rutaCarpeta + "\\" + "SOL-AR-REF" + refe + "-" + version + "-" + ano + semana + "-" + i + ".png");

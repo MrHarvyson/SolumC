@@ -75,43 +75,82 @@ namespace SolumC
         {
             if (RbtMatriz.IsChecked == true)
             {
-                Matriz.btnGenerarInf(Properties.Settings.Default.direccionMatrizInf, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
-                Matriz.btnGenerarSup(Properties.Settings.Default.direccionMatrizSup, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
+                if(txtCantidad.Text == "" | txtVersion.Text == "" | txtAno.Text == "" | txtSemana.Text == "" | Properties.Settings.Default.direccionMatrizInf == "" | Properties.Settings.Default.direccionMatrizSup == "" | rutaSalida == "")
+                {
+                    MessageBox.Show("Faltan campos por completar.");
+                }
+                else
+                {
+                    Matriz.btnGenerarInf(Properties.Settings.Default.direccionMatrizInf, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
+                    Matriz.btnGenerarSup(Properties.Settings.Default.direccionMatrizSup, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
+                }
             }
             if(RbtBicicleta.IsChecked== true)
             {
-                Bicicleta.btnGenerar(Properties.Settings.Default.direccionBicicleta, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
+
+                if (txtCantidad.Text == "" | txtVersion.Text == "" | txtAno.Text == "" | txtSemana.Text == "" | Properties.Settings.Default.direccionBicicleta == "" | rutaSalida == "")
+                {
+                    MessageBox.Show("Faltan campos por completar.");
+                }
+                else
+                {
+                    Bicicleta.btnGenerar(Properties.Settings.Default.direccionBicicleta, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
+                }
             }
             if (RbtBaldosa.IsChecked == true) 
             {
-                Baldosa.btnGenerar(Properties.Settings.Default.direccionBaldosa, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
+                if (txtCantidad.Text == "" | txtVersion.Text == "" | txtAno.Text == "" | txtSemana.Text == "" | Properties.Settings.Default.direccionBaldosa == "" | rutaSalida == "")
+                {
+                    MessageBox.Show("Faltan campos por completar.");
+                }
+                else
+                {
+                    Baldosa.btnGenerar(Properties.Settings.Default.direccionBaldosa, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
+                }
             }
             if (RbtPatinete.IsChecked == true) 
             {
-                Patinete.btnGenerar(Properties.Settings.Default.direccionPatinete, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
+                if (txtCantidad.Text == "" | txtVersion.Text == "" | txtAno.Text == "" | txtSemana.Text == "" | Properties.Settings.Default.direccionPatinete == "" | rutaSalida == "")
+                {
+                    MessageBox.Show("Faltan campos por completar.");
+                }
+                else
+                {
+                    Patinete.btnGenerar(Properties.Settings.Default.direccionPatinete, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
+                }
             }
             if(RbtRef.IsChecked == true)
             {
-              if(txtRef.Text == "1")
+                if (txtCantidad.Text == "" | txtVersion.Text == "" | txtAno.Text == "" | txtSemana.Text == "" | Properties.Settings.Default.direccionRef1 == "" 
+                    | Properties.Settings.Default.direccionRef2 == ""| Properties.Settings.Default.direccionRef3 == "" | Properties.Settings.Default.direccionRef4 == "" | 
+                    Properties.Settings.Default.direccionRef5 == "" | rutaSalida == "" | txtRef.Text == "")
                 {
-                    Ref.btnGenerar(Properties.Settings.Default.direccionRef1, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida, txtRef.Text);
+                    MessageBox.Show("Faltan campos por completar.");
                 }
-                if (txtRef.Text == "2")
+                else
                 {
-                    Ref.btnGenerar(Properties.Settings.Default.direccionRef2, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida, txtRef.Text);
+                    if (txtRef.Text == "1")
+                    {
+                        Ref.btnGenerar(Properties.Settings.Default.direccionRef1, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida, txtRef.Text);
+                    }
+                    if (txtRef.Text == "2")
+                    {
+                        Ref.btnGenerar(Properties.Settings.Default.direccionRef2, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida, txtRef.Text);
+                    }
+                    if (txtRef.Text == "3")
+                    {
+                        Ref.btnGenerar(Properties.Settings.Default.direccionRef3, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida, txtRef.Text);
+                    }
+                    if (txtRef.Text == "4")
+                    {
+                        Ref.btnGenerar(Properties.Settings.Default.direccionRef4, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida, txtRef.Text);
+                    }
+                    if (txtRef.Text == "5")
+                    {
+                        Ref.btnGenerar(Properties.Settings.Default.direccionRef5, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida, txtRef.Text);
+                    }
                 }
-                if (txtRef.Text == "3")
-                {
-                    Ref.btnGenerar(Properties.Settings.Default.direccionRef3, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida, txtRef.Text);
-                }
-                if (txtRef.Text == "4")
-                {
-                    Ref.btnGenerar(Properties.Settings.Default.direccionRef4, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida, txtRef.Text);
-                }
-                if (txtRef.Text == "5")
-                {
-                    Ref.btnGenerar(Properties.Settings.Default.direccionRef5, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida, txtRef.Text);
-                }
+                
             }
 
             txtCantidad.Text = "";
