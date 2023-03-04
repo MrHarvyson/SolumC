@@ -16,6 +16,7 @@
     <None Remove="img\iconBicicleta.png" />
     <None Remove="img\iconPatinete.png" />
     <None Remove="img\panelSolar.png" />
+    <None Remove="img\seleccion.png" />
     <None Remove="img\Template_Bicicletas_v1.png" />
     <None Remove="Resources\logoSolum.png" />
   </ItemGroup>
@@ -40,6 +41,7 @@
     <Resource Include="img\logoSolum.png" />
     <Resource Include="img\panelSolar.png" />
     <Resource Include="img\iconPatinete.png" />
+    <Resource Include="img\seleccion.png" />
     <Resource Include="img\Template_Bicicletas_v1.png" />
   </ItemGroup>
 

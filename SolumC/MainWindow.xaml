@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolumC"
         mc:Ignorable="d"
-        Title="SOLUM | BARCODE" Height="350" Width="600"
+        Title="SOLUM | BARCODE" Height="400" Width="650"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Icon="img/iconSolum.png"
@@ -104,8 +104,19 @@
 
                 </RadioButton>
 
-            </StackPanel>
+                <RadioButton x:Name="RbtRef" 
+                                         Style="{StaticResource BotMenu}"
+                                         Tag="{StaticResource verdeClaro}"
+                             Click="RbtRef_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="img/seleccion.png" Width="30" Margin="10 0"></Image>
+                        <TextBlock Text="PERÍMETRO" Style="{StaticResource MenuBotonText}"></TextBlock>
+                    </StackPanel>
 
+                </RadioButton>
+
+            </StackPanel>
+    
         </Grid>
 
         <!-- panel ajustes-->
@@ -122,6 +133,11 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -269,11 +285,152 @@
                        VerticalAlignment="Bottom"
                        Source="img/carpeta.png"></Image>
 
-                <!-- -->
+                <!-- ref1-->
 
                 <TextBlock 
                         Grid.Column="0"
                         Grid.Row="5"
+                        Foreground="{StaticResource Negro}"
+                        FontWeight="Bold"
+                        FontFamily="Gotham"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Bottom">REF1</TextBlock>
+
+                <TextBox x:Name="txtCarpetaRef1" 
+                         Grid.Column="1"
+                         Grid.Row="5"
+                         Background="Transparent"
+                         BorderThickness="0 0 0 1" 
+                         VerticalAlignment="Bottom"
+                         Margin="10 0"
+                         Foreground="{StaticResource Negro}"/>
+
+                <Image x:Name="imgPatineteRef1" 
+                       Grid.Column="2" 
+                       Grid.Row="5"
+                       Width="25"
+                       MouseDown="imgRef1_MouseDown"
+                       VerticalAlignment="Bottom"
+                       Source="img/carpeta.png"></Image>
+
+                <!-- ref2-->
+
+                <TextBlock 
+                        Grid.Column="0"
+                        Grid.Row="6"
+                        Foreground="{StaticResource Negro}"
+                        FontWeight="Bold"
+                        FontFamily="Gotham"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Bottom">REF2</TextBlock>
+
+                <TextBox x:Name="txtCarpetaRef2" 
+                         Grid.Column="1"
+                         Grid.Row="6"
+                         Background="Transparent"
+                         BorderThickness="0 0 0 1" 
+                         VerticalAlignment="Bottom"
+                         Margin="10 0"
+                         Foreground="{StaticResource Negro}"/>
+
+                <Image x:Name="imgPatineteRef2" 
+                       Grid.Column="2" 
+                       Grid.Row="6"
+                       Width="25"
+                       MouseDown="imgRef2_MouseDown"
+                       VerticalAlignment="Bottom"
+                       Source="img/carpeta.png"></Image>
+
+                <!-- ref3-->
+
+                <TextBlock 
+                        Grid.Column="0"
+                        Grid.Row="7"
+                        Foreground="{StaticResource Negro}"
+                        FontWeight="Bold"
+                        FontFamily="Gotham"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Bottom">REF3</TextBlock>
+
+                <TextBox x:Name="txtCarpetaRef3" 
+                         Grid.Column="1"
+                         Grid.Row="7"
+                         Background="Transparent"
+                         BorderThickness="0 0 0 1" 
+                         VerticalAlignment="Bottom"
+                         Margin="10 0"
+                         Foreground="{StaticResource Negro}"/>
+
+                <Image x:Name="imgPatineteRef3" 
+                       Grid.Column="2" 
+                       Grid.Row="7"
+                       Width="25"
+                       MouseDown="imgRef3_MouseDown"
+                       VerticalAlignment="Bottom"
+                       Source="img/carpeta.png"></Image>
+
+                <!-- ref4-->
+
+                <TextBlock 
+                        Grid.Column="0"
+                        Grid.Row="8"
+                        Foreground="{StaticResource Negro}"
+                        FontWeight="Bold"
+                        FontFamily="Gotham"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Bottom">REF4</TextBlock>
+
+                <TextBox x:Name="txtCarpetaRef4" 
+                         Grid.Column="1"
+                         Grid.Row="8"
+                         Background="Transparent"
+                         BorderThickness="0 0 0 1" 
+                         VerticalAlignment="Bottom"
+                         Margin="10 0"
+                         Foreground="{StaticResource Negro}"/>
+
+                <Image x:Name="imgPatineteRef4" 
+                       Grid.Column="2" 
+                       Grid.Row="8"
+                       Width="25"
+                       MouseDown="imgRef4_MouseDown"
+                       VerticalAlignment="Bottom"
+                       Source="img/carpeta.png"></Image>
+
+                <!-- ref5-->
+
+                <TextBlock 
+                        Grid.Column="0"
+                        Grid.Row="9"
+                        Foreground="{StaticResource Negro}"
+                        FontWeight="Bold"
+                        FontFamily="Gotham"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Bottom">REF5</TextBlock>
+
+                <TextBox x:Name="txtCarpetaRef5" 
+                         Grid.Column="1"
+                         Grid.Row="9"
+                         Background="Transparent"
+                         BorderThickness="0 0 0 1" 
+                         VerticalAlignment="Bottom"
+                         Margin="10 0"
+                         Foreground="{StaticResource Negro}"/>
+
+                <Image x:Name="imgPatineteRef5" 
+                       Grid.Column="2" 
+                       Grid.Row="9"
+                       Width="25"
+                       MouseDown="imgRef5_MouseDown"
+                       VerticalAlignment="Bottom"
+                       Source="img/carpeta.png"></Image>
+
+
+                <!-- Salida -->
+
+                <TextBlock 
+                        Grid.Column="0"
+                        Grid.Row="10"
                         Name="btnCarpeta" 
                         Foreground="{StaticResource Negro}"
                         FontWeight="Bold"
@@ -283,7 +440,7 @@
 
                 <TextBox x:Name="txtCarpeta" 
                          Grid.Column="1"
-                         Grid.Row="5"
+                         Grid.Row="10"
                          Background="Transparent"
                          BorderThickness="0 0 0 1" 
                          VerticalAlignment="Bottom"
@@ -291,7 +448,7 @@
                          Foreground="{StaticResource Negro}"></TextBox>
 
                 <Image Grid.Column="2" 
-                       Grid.Row="5"
+                       Grid.Row="10"
                        MouseDown="Carpeta_MouseDown"
                        Width="25"
                        VerticalAlignment="Bottom"
@@ -341,6 +498,45 @@
                            FontSize="10"
                            Foreground="{DynamicResource Negro}"
                            HorizontalAlignment="Center"></TextBlock>
+
+                <Grid x:Name="gridPrecodigoPerimetro" 
+                           Grid.Column="0"
+                           Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock x:Name="txtPrecodigoPerimetro" 
+                           Grid.Column="0"
+                           VerticalAlignment="Bottom"
+                           FontFamily="Gotham"
+                           FontSize="10"
+                           Foreground="{DynamicResource Negro}"
+                           HorizontalAlignment="Center"></TextBlock>
+                    <TextBox Grid.Column="1" 
+                         Name="txtRef" 
+                             Background="Transparent"
+                             BorderThickness="0 0 0 1"
+                             Width="50"
+                            FontFamily="Gotham"
+                           FontSize="10"
+                             VerticalAlignment="Bottom"
+                         HorizontalContentAlignment="Center"
+                             Foreground="{StaticResource Negro}"
+                             BorderBrush="{StaticResource Gris}"
+                             HorizontalAlignment="Center"></TextBox>
+                    <TextBlock
+                           Grid.Column="2"
+                           VerticalAlignment="Bottom"
+                           FontFamily="Gotham"
+                           FontSize="10"
+                        Margin="10 0 0 0"
+                           Foreground="{DynamicResource Negro}"
+                           HorizontalAlignment="Center">-</TextBlock>
+                </Grid>
+                
                 <TextBlock Grid.Column="1"
                            Grid.Row="0"
                            VerticalAlignment="Bottom"
@@ -436,84 +632,8 @@
                              Foreground="{StaticResource Negro}"
                              BorderBrush="{StaticResource Gris}"
                              HorizontalAlignment="Center"></TextBox>
-                <!--
-
-                <TextBlock Grid.Column="0"
-                           Grid.Row="0"
-                           Foreground="{StaticResource Negro}"
-                           VerticalAlignment="Bottom">Versión:</TextBlock>
-                <TextBox Grid.Column="1"
-                             Grid.Row="0"  Name="txtVersion" 
-                             Background="Transparent"
-                             BorderThickness="0 0 0 1"
-                             Width="50"
-                             VerticalAlignment="Bottom"
-                             Foreground="{StaticResource Negro}"
-                             BorderBrush="{StaticResource Negro}"
-                             HorizontalAlignment="Left"></TextBox>
-                <TextBlock Grid.Column="0"
-                           Grid.Row="1"
-                           Foreground="{StaticResource Negro}"
-                           VerticalAlignment="Bottom">Año:</TextBlock>
-                <TextBox Grid.Column="1"
-                             Grid.Row="1" 
-                             Name="txtAno" 
-                             Background="Transparent"
-                             BorderThickness="0 0 0 1"
-                             Width="50"
-                             VerticalAlignment="Bottom"
-                             Foreground="{StaticResource Negro}"
-                             BorderBrush="{StaticResource Negro}"
-                             HorizontalAlignment="Left"></TextBox>
-                <TextBlock Grid.Column="0"
-                           Grid.Row="2"
-                           Foreground="{StaticResource Negro}"
-                           VerticalAlignment="Bottom">Semana del año:</TextBlock>
-                <TextBox Grid.Column="1"
-                             Grid.Row="2" 
-                             Name="txtSemana" 
-                             Background="Transparent"
-                             BorderThickness="0 0 0 1"
-                             Width="50"
-                             VerticalAlignment="Bottom"
-                             Foreground="{StaticResource Negro}"
-                             BorderBrush="{StaticResource Negro}"
-                             HorizontalAlignment="Left"></TextBox>
-                <TextBlock Grid.Column="0"
-                           Grid.Row="3"
-                           Foreground="{StaticResource Negro}"
-                           VerticalAlignment="Bottom">Cantidad:</TextBlock>
-                <TextBox Grid.Column="1"
-                             Grid.Row="3" 
-                             x:Name="txtCantidad" 
-                             Background="Transparent"
-                             BorderThickness="0 0 0 1"
-                             Width="50"
-                             VerticalAlignment="Bottom"
-                             Foreground="{StaticResource Negro}"
-                             BorderBrush="{StaticResource Negro}"
-                             HorizontalAlignment="Left"></TextBox>
--->
             </Grid>
 
-            <Grid Grid.Row="1"
-                  VerticalAlignment="Center"
-                  Margin="20 0">
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="auto"/>
-                </Grid.ColumnDefinitions>
-
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-
-                
-
-            </Grid>
 
             <Button Content="GENERAR"
                         Grid.Row="2"

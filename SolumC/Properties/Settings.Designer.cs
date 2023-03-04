@@ -94,5 +94,65 @@ namespace SolumC.Properties {
                 this["direccionMatrizInf"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string direccionRef1 {
+            get {
+                return ((string)(this["direccionRef1"]));
+            }
+            set {
+                this["direccionRef1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string direccionRef2 {
+            get {
+                return ((string)(this["direccionRef2"]));
+            }
+            set {
+                this["direccionRef2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string direccionRef3 {
+            get {
+                return ((string)(this["direccionRef3"]));
+            }
+            set {
+                this["direccionRef3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string direccionRef4 {
+            get {
+                return ((string)(this["direccionRef4"]));
+            }
+            set {
+                this["direccionRef4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string direccionRef5 {
+            get {
+                return ((string)(this["direccionRef5"]));
+            }
+            set {
+                this["direccionRef5"] = value;
+            }
+        }
     }
 }

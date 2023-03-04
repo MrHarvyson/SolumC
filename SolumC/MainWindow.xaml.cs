@@ -27,7 +27,8 @@ namespace SolumC
     public partial class MainWindow : Window
     {
         Bitmap bitEtiqueta, bitEtiquetaSup, bitEtiquetaInf;
-        public static string rutaSalida, rutaMatrizSup, rutaMatrizInf, rutaBaldosa, rutaBicicleta, rutaPatinete, preCodigo;
+        public static string rutaSalida, rutaMatrizSup, rutaMatrizInf, rutaBaldosa, rutaBicicleta, rutaPatinete, preCodigo,
+            rutaRef1, rutaRef2, rutaRef3, rutaRef4, rutaRef5;
 
         public MainWindow()
         {
@@ -40,6 +41,11 @@ namespace SolumC
             rutaBaldosa = Properties.Settings.Default.direccionBaldosa;
             rutaBicicleta = Properties.Settings.Default.direccionBicicleta;
             rutaPatinete = Properties.Settings.Default.direccionPatinete;
+            rutaRef1 = Properties.Settings.Default.direccionRef1;
+            rutaRef2 = Properties.Settings.Default.direccionRef2;
+            rutaRef3 = Properties.Settings.Default.direccionRef3;
+            rutaRef4 = Properties.Settings.Default.direccionRef4;
+            rutaRef5 = Properties.Settings.Default.direccionRef5;
 
 
             txtCarpeta.Text = rutaSalida;
@@ -48,16 +54,22 @@ namespace SolumC
             txtCarpetaPatinete.Text = rutaPatinete;
             txtCarpetaMatrizInf.Text = rutaMatrizInf;
             txtCarpetaMatrizSup.Text = rutaMatrizSup;
+            txtCarpetaRef1.Text= rutaRef1;
+            txtCarpetaRef2.Text= rutaRef2;
+            txtCarpetaRef3.Text= rutaRef3;
+            txtCarpetaRef4.Text= rutaRef4;
+            txtCarpetaRef5.Text= rutaRef5;
 
             preCodigo = "SOL - AR - M -";
             txtPrecodigo.Text = preCodigo;
 
             panelPrincipal.Visibility= Visibility.Visible;
             panelAjustes.Visibility = Visibility.Collapsed;
+            gridPrecodigoPerimetro.Visibility = Visibility.Collapsed;
 
         }
 
-
+        
 
         private void btnGenerar_Click(object sender, RoutedEventArgs e)
         {
@@ -78,18 +90,42 @@ namespace SolumC
             {
                 Patinete.btnGenerar(Properties.Settings.Default.direccionPatinete, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida);
             }
+            if(RbtRef.IsChecked == true)
+            {
+              if(txtRef.Text == "1")
+                {
+                    Ref.btnGenerar(Properties.Settings.Default.direccionRef1, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida, txtRef.Text);
+                }
+                if (txtRef.Text == "2")
+                {
+                    Ref.btnGenerar(Properties.Settings.Default.direccionRef2, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida, txtRef.Text);
+                }
+                if (txtRef.Text == "3")
+                {
+                    Ref.btnGenerar(Properties.Settings.Default.direccionRef3, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida, txtRef.Text);
+                }
+                if (txtRef.Text == "4")
+                {
+                    Ref.btnGenerar(Properties.Settings.Default.direccionRef4, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida, txtRef.Text);
+                }
+                if (txtRef.Text == "5")
+                {
+                    Ref.btnGenerar(Properties.Settings.Default.direccionRef5, txtCantidad.Text, txtVersion.Text, txtAno.Text, txtSemana.Text, rutaSalida, txtRef.Text);
+                }
+            }
 
             txtCantidad.Text = "";
             txtVersion.Text = "";
             txtAno.Text = "";
             txtSemana.Text = "";
+            txtRef.Text = "";
 
         }
 
         private void Carpeta_MouseDown(object sender, MouseButtonEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Seleccionar carpeta";
+            openFileDialog.Title = "Seleccionar carpeta de salida";
             openFileDialog.Filter = "Carpeta|*.";
             openFileDialog.CheckFileExists = false;
             openFileDialog.CheckPathExists = true;
@@ -108,7 +144,7 @@ namespace SolumC
         {
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Seleccionar etiqueta";
+            openFileDialog.Title = "Seleccionar etiqueta de matriz superior";
             openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 
@@ -129,7 +165,7 @@ namespace SolumC
         {
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Seleccionar etiqueta";
+            openFileDialog.Title = "Seleccionar etiqueta de matriz inferior";
             openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 
@@ -146,10 +182,12 @@ namespace SolumC
 
         }
 
+       
+
         private void Baldosa_MouseDown(object sender, MouseButtonEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Seleccionar etiqueta";
+            openFileDialog.Title = "Seleccionar etiqueta de baldosa";
             openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 
@@ -170,7 +208,7 @@ namespace SolumC
         {
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Seleccionar etiqueta";
+            openFileDialog.Title = "Seleccionar etiqueta de bicicleta";
             openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 
@@ -196,7 +234,7 @@ namespace SolumC
         private void Patinete_MouseDown(object sender, MouseButtonEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Seleccionar etiqueta";
+            openFileDialog.Title = "Seleccionar etiqueta de patinete";
             openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 
@@ -213,12 +251,109 @@ namespace SolumC
             
         }
 
+        private void imgRef1_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Seleccionar etiqueta de perimetro 1";
+            openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+            // Mostrar el cuadro de diálogo OpenFileDialog
+            if (openFileDialog.ShowDialog() == true)
+            {
+                rutaRef1 = openFileDialog.FileName;
+                Properties.Settings.Default.direccionRef1 = rutaRef1;
+                Properties.Settings.Default.Save();
+                // Cargar la imagen en el control Image
+                bitEtiqueta = new Bitmap(openFileDialog.FileName);
+                txtCarpetaRef1.Text = rutaRef1;
+            }
+        }
+
+        private void imgRef2_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Seleccionar etiqueta de perimetro 2";
+            openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+            // Mostrar el cuadro de diálogo OpenFileDialog
+            if (openFileDialog.ShowDialog() == true)
+            {
+                rutaRef2 = openFileDialog.FileName;
+                Properties.Settings.Default.direccionRef2 = rutaRef2;
+                Properties.Settings.Default.Save();
+                // Cargar la imagen en el control Image
+                bitEtiqueta = new Bitmap(openFileDialog.FileName);
+                txtCarpetaRef2.Text = rutaRef2;
+            }
+        }
+
+        private void imgRef3_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Seleccionar etiqueta de perimetro 3";
+            openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+            // Mostrar el cuadro de diálogo OpenFileDialog
+            if (openFileDialog.ShowDialog() == true)
+            {
+                rutaRef3 = openFileDialog.FileName;
+                Properties.Settings.Default.direccionRef3 = rutaRef3;
+                Properties.Settings.Default.Save();
+                // Cargar la imagen en el control Image
+                bitEtiqueta = new Bitmap(openFileDialog.FileName);
+                txtCarpetaRef3.Text = rutaRef3;
+            }
+        }
+
+        private void imgRef4_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Seleccionar etiqueta de perimetro 4";
+            openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+            // Mostrar el cuadro de diálogo OpenFileDialog
+            if (openFileDialog.ShowDialog() == true)
+            {
+                rutaRef4 = openFileDialog.FileName;
+                Properties.Settings.Default.direccionRef4 = rutaRef4;
+                Properties.Settings.Default.Save();
+                // Cargar la imagen en el control Image
+                bitEtiqueta = new Bitmap(openFileDialog.FileName);
+                txtCarpetaRef4.Text = rutaRef4;
+            }
+        }
+
+        private void imgRef5_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Seleccionar etiqueta de perimetro 5";
+            openFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+            // Mostrar el cuadro de diálogo OpenFileDialog
+            if (openFileDialog.ShowDialog() == true)
+            {
+                rutaRef5 = openFileDialog.FileName;
+                Properties.Settings.Default.direccionRef5 = rutaRef5;
+                Properties.Settings.Default.Save();
+                // Cargar la imagen en el control Image
+                bitEtiqueta = new Bitmap(openFileDialog.FileName);
+                txtCarpetaRef5.Text = rutaRef5;
+            }
+        }
+
         private void RbtBicicleta_Click(object sender, RoutedEventArgs e)
         {
 
             txtPrecodigo.Text = "SOL - MOD - EB -";
 
             panelPrincipal.Visibility = Visibility.Visible;
+            gridPrecodigoPerimetro.Visibility = Visibility.Collapsed;
+            txtPrecodigo.Visibility = Visibility.Visible;
 
         }
 
@@ -229,6 +364,8 @@ namespace SolumC
 
             panelPrincipal.Visibility = Visibility.Visible;
             panelAjustes.Visibility = Visibility.Collapsed;
+            gridPrecodigoPerimetro.Visibility = Visibility.Collapsed;
+            txtPrecodigo.Visibility = Visibility.Visible;
 
         }
 
@@ -239,6 +376,8 @@ namespace SolumC
 
             panelPrincipal.Visibility = Visibility.Visible;
             panelAjustes.Visibility = Visibility.Collapsed;
+            gridPrecodigoPerimetro.Visibility = Visibility.Collapsed;
+            txtPrecodigo.Visibility = Visibility.Visible;
 
         }
 
@@ -247,6 +386,18 @@ namespace SolumC
 
             txtPrecodigo.Text = "SOL - AR - B -";
 
+            panelPrincipal.Visibility = Visibility.Visible;
+            panelAjustes.Visibility = Visibility.Collapsed;
+            gridPrecodigoPerimetro.Visibility = Visibility.Collapsed;
+            txtPrecodigo.Visibility = Visibility.Visible;
+        }
+
+        private void RbtRef_Click(object sender, RoutedEventArgs e)
+        {
+            txtPrecodigoPerimetro.Text = "SOL - AR - REF";
+
+            gridPrecodigoPerimetro.Visibility = Visibility.Visible;
+            txtPrecodigo.Visibility = Visibility.Collapsed;
             panelPrincipal.Visibility = Visibility.Visible;
             panelAjustes.Visibility = Visibility.Collapsed;
         }
