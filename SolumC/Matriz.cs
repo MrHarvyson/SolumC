@@ -30,7 +30,7 @@ namespace SolumC
         {
             bitEtiquetaInf = new Bitmap(direccion);
 
-            for (int i = 0; i < Convert.ToInt64(cantidad); i++)
+            for (int i = 1; i <= Convert.ToInt64(cantidad); i++)
             {
                 mergeInf(i,version,ano, semana, rutaCarpeta);
             }
@@ -39,7 +39,7 @@ namespace SolumC
         public static void btnGenerarSup(String direccion, String cantidad, String version, String ano, String semana, String rutaCarpeta)
         {
             bitEtiquetaSup = new Bitmap(direccion);
-            for (int i = 0; i < Convert.ToInt64(cantidad); i++)
+            for (int i = 1; i <= Convert.ToInt64(cantidad); i++)
             {
                 mergeSup(i, version, ano, semana, rutaCarpeta);
             }
@@ -68,7 +68,18 @@ namespace SolumC
 
 
             // guarda nueva pegatina 
-            combinedImage.Save(rutaCarpeta + "\\" + "SOL-AR-M-INF-" + version + "-" + ano + semana + "-" + i + ".png");
+
+            String ind = "";
+
+            if (i < 10)
+            {
+                ind = "0" + Convert.ToString(i);
+            }
+            else
+            {
+                ind = Convert.ToString(i);
+            }
+            combinedImage.Save(rutaCarpeta + "\\" + "SOL-AR-M-INF-" + version + "-" + ano + semana + "-" + ind + ".png");
 
         }
 
@@ -79,9 +90,19 @@ namespace SolumC
             codigo.IncludeLabel = true;
             codigo.LabelFont = new Font("Gotham", 15);
 
+            String ind = "";
+
+            if (indice < 10)
+            {
+                ind = "0" + Convert.ToString(indice);
+            }
+            else
+            {
+                ind = Convert.ToString(indice);
+            }
 
             // poner el largo del archivo y las coordenadas en x a 0
-            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-M-" + version + "-" + ano + semana + "-" + indice, System.Drawing.Color.Black, System.Drawing.Color.Transparent, 600, 100);
+            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-M-" + version + "-" + ano + semana + "-" + ind, System.Drawing.Color.Black, System.Drawing.Color.Transparent, 600, 100);
 
             Bitmap bitmapCo = new Bitmap(co);
 
@@ -110,7 +131,18 @@ namespace SolumC
 
 
             // guarda nueva pegatina 
-            combinedImage.Save(rutaCarpeta + "\\" + "SOL-AR-M-SUP-" + version + "-" + ano + semana + "-" + i + ".png");
+
+            String ind = "";
+
+            if (i < 10)
+            {
+                ind = "0" + Convert.ToString(i);
+            }
+            else
+            {
+                ind = Convert.ToString(i);
+            }
+            combinedImage.Save(rutaCarpeta + "\\" + "SOL-AR-M-SUP-" + version + "-" + ano + semana + "-" + ind + ".png");
 
         }
 
@@ -121,9 +153,19 @@ namespace SolumC
             codigo.IncludeLabel = true;
             codigo.LabelFont = new Font("Gotham", 10);
 
+            String ind = "";
+
+            if (indice < 10)
+            {
+                ind = "0" + Convert.ToString(indice);
+            }
+            else
+            {
+                ind = Convert.ToString(indice);
+            }
 
             // poner el largo del archivo y las coordenadas en x a 0
-            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-M-" + version + "-" + ano + semana + "-" + indice, System.Drawing.Color.Black, System.Drawing.Color.Transparent, 302, 75);
+            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-M-" + version + "-" + ano + semana + "-" + ind, System.Drawing.Color.Black, System.Drawing.Color.Transparent, 302, 75);
 
             Bitmap bitmapCo = new Bitmap(co);
 

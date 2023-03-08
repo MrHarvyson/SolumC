@@ -17,7 +17,7 @@ namespace SolumC
         public static void btnGenerar(String direccion, String cantidad, String version, String ano, String semana, String rutaCarpeta, String refe)
         {
             bitEtiqueta = new Bitmap(direccion);
-            for (int i = 0; i < Convert.ToInt64(cantidad); i++)
+            for (int i = 1; i <= Convert.ToInt64(cantidad); i++)
             {
                 merge(i, version, ano, semana, rutaCarpeta,refe);
             }
@@ -33,8 +33,8 @@ namespace SolumC
             // Dibuja las dos imágenes en el objeto Bitmap combinado
             using (var g = Graphics.FromImage(combinedImage))
             {
-                g.DrawImage(bitEtiqueta, 0, 0, 265, 265);
-                g.DrawImage(barcode(version, ano, semana, i, refe), 0, 140, 265, 50);
+                g.DrawImage(bitEtiqueta, 0, 0, 945, 945);
+                g.DrawImage(barcode(version, ano, semana, i, refe), 0, 500, 945, 150);
             }
 
             // Crea un objeto BitmapSource a partir del objeto Bitmap
@@ -45,7 +45,18 @@ namespace SolumC
                 BitmapSizeOptions.FromEmptyOptions());
 
             // guarda nueva pegatina 
-            combinedImage.Save(rutaCarpeta + "\\" + "SOL-AR-REF" + refe + "-" + version + "-" + ano + semana + "-" + i + ".png");
+
+            String ind = "";
+
+            if (i < 10)
+            {
+                ind = "0" + Convert.ToString(i);
+            }
+            else
+            {
+                ind = Convert.ToString(i);
+            }
+            combinedImage.Save(rutaCarpeta + "\\" + "SOL-AR-REF" + refe + "-" + version + "-" + ano + semana + "-" + ind + ".png");
 
         }
 
@@ -54,11 +65,21 @@ namespace SolumC
         {
             BarcodeLib.Barcode codigo = new BarcodeLib.Barcode();
             codigo.IncludeLabel = true;
-            codigo.LabelFont = new Font("Gotham", 8);
+            codigo.LabelFont = new Font("Gotham", 16);
 
+            String ind = "";
+
+            if (indice < 10)
+            {
+                ind = "0" + Convert.ToString(indice);
+            }
+            else
+            {
+                ind = Convert.ToString(indice);
+            }
 
             // poner el largo del archivo y las coordenadas en x a 0
-            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-REF" + refe + "-" + version + "-" + ano + semana + "-" + indice, System.Drawing.Color.Black, System.Drawing.Color.Transparent, 265, 50);
+            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-AR-REF" + refe + "-" + version + "-" + ano + semana + "-" + ind, System.Drawing.Color.Black, System.Drawing.Color.Transparent, 945, 150);
 
             Bitmap bitmapCo = new Bitmap(co);
 

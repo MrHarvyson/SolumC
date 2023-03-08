@@ -53,7 +53,7 @@
                     FontFamily="Gotham"
                     VerticalAlignment="Bottom"
                     Foreground="{StaticResource grisOscuro}"
-                    >Version 2.01</TextBlock>
+                    >Version 2.06</TextBlock>
             </Grid>
             
 
