@@ -46,8 +46,8 @@ namespace SolumC
             // Dibuja las dos imágenes en el objeto Bitmap combinado
             using (var g = Graphics.FromImage(combinedImage))
             {
-                g.DrawImage(bitEtiqueta, 0, 0, 302, 151);
-                g.DrawImage(barcode(version, ano, semana, i), 0, 50, 302, 50);
+                g.DrawImage(bitEtiqueta, 0, 0, 945, 472);
+                g.DrawImage(barcode(version, ano, semana, i), 0, 150, 945, 150);
             }
 
             // Crea un objeto BitmapSource a partir del objeto Bitmap
@@ -79,7 +79,7 @@ namespace SolumC
         {
             BarcodeLib.Barcode codigo = new BarcodeLib.Barcode();
             codigo.IncludeLabel = true;
-            codigo.LabelFont = new Font("Gotham", 8);
+            codigo.LabelFont = new Font("Gotham", 16);
 
             String ind = "";
 
@@ -94,13 +94,12 @@ namespace SolumC
 
 
             // poner el largo del archivo y las coordenadas en x a 0
-            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-MOD-EB-" + version + "-" + ano + semana + "-" + ind, System.Drawing.Color.Black, System.Drawing.Color.Transparent, 302, 50);
+            System.Drawing.Image co = codigo.Encode(BarcodeLib.TYPE.CODE128, "SOL-MOD-EB-" + version + "-" + ano + semana + "-" + ind, System.Drawing.Color.Black, System.Drawing.Color.Transparent, 945, 150);
 
             Bitmap bitmapCo = new Bitmap(co);
 
             return bitmapCo;
         }
-
 
     }
 
